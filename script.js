@@ -172,3 +172,67 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+
+
+
+// Terms Modal Logic
+const termsLink      = document.getElementById('open-terms');
+const termsModal     = document.getElementById('termsModal');
+const closeTerms     = document.getElementById('closeTerms');
+const closeTermsBtn  = document.getElementById('closeTermsBtn');
+const termsCheckbox  = document.getElementById('terms');
+const submitButton   = document.querySelector('.submit-btn');
+
+// Open modal when clicking "terms and conditions"
+termsLink.addEventListener('click', function(e) {
+    e.preventDefault();
+    termsModal.style.display = 'block';
+});
+
+// Close modal ways
+closeTerms.addEventListener('click', () => {
+    termsModal.style.display = 'none';
+});
+
+closeTermsBtn.addEventListener('click', () => {
+    termsModal.style.display = 'none';
+    // Optional: auto-check the box after reading (common pattern)
+    // termsCheckbox.checked = true;
+    // submitButton.disabled = false;
+});
+
+window.addEventListener('click', function(e) {
+    if (e.target === termsModal) {
+        termsModal.style.display = 'none';
+    }
+});
+
+// Optional: Enable submit button only after checkbox is checked
+// (you can remove this if you prefer to keep HTML5 required validation only)
+termsCheckbox.addEventListener('change', function() {
+    submitButton.disabled = !this.checked;
+});
+
+// If you want to force user to open terms at least once before checking:
+let hasOpenedTerms = false;
+
+termsLink.addEventListener('click', function() {
+    hasOpenedTerms = true;
+});
+
+termsCheckbox.addEventListener('click', function(e) {
+    if (!hasOpenedTerms) {
+        e.preventDefault();
+        alert('Please read the terms and conditions first.');
+        termsModal.style.display = 'block';
+    }
+});
+
+
+
+// Close when clicking outside
+window.addEventListener('click', function(e) {
+    if (e.target === termsModal) closeModal();
+});
+
