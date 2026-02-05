@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Book your stay at Urban Oasis - secure your dates and send an inquiry.">
+	<title>Urban Oasis — Booking</title>
+	<link rel="icon" type="image/x-icon" href="/images/favicon.png">
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+	<header class="navbar">
+		<div class="logo">
+        	<a href="index.html">
+          	<img src="images/urban_oasis.png" alt="Urban Oasis Logo">Urban Oasis</a>
+      	</div>
+		<nav class="nav-links" id="navLinks">
+			<a href="index.html" data-en="Home" data-es="Inicio" data-fr="Accueil">Home</a>
+			<a href="amenities.html" data-en="Amenities" data-es="Servicios" data-fr="Équipements">Amenities</a>
+			<a href="gallery.html" data-en="Gallery" data-es="Galería" data-fr="Galerie">Gallery</a>
+			<a href="location.html" data-en="Location" data-es="Ubicación" data-fr="Emplacement">Location</a>
+		</nav>
+		<a href="booking.html"><button class="reserve-btn" data-en="Book Now" data-es="Reservar" data-fr="Réserver">Book Now</button></a>
+		<div class="lang-switcher">
+			<button id="langEn" class="lang-btn active">EN</button>
+			<button id="langEs" class="lang-btn">ES</button>
+			<button id="langFr" class="lang-btn">FR</button>
+		</div>
+		<div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+		<div class="menu-overlay" id="menuOverlay"></div>
+	</header>
+
+	<section class="hero" style="background-image: url('images/BEDROOM1A.jpg');">
+		<div class="overlay"></div>
+		<div class="hero-content">
+			<p class="welcome" data-en="BOOK YOUR STAY" data-es="RESERVA TU ESTANCIA" data-fr="RÉSERVEZ VOTRE SÉJOUR">BOOK YOUR STAY</p>
+			<h1 data-en="Reserve at Urban Oasis" data-es="Reserva en Urban Oasis" data-fr="Réservez à Urban Oasis">Reserve at Urban Oasis</h1>
+			<p class="subtitle" data-en="Quick booking inquiry — we'll confirm availability within 24 hours." data-es="Consulta rápida — confirmaremos disponibilidad en 24 horas." data-fr="Demande rapide — nous confirmerons la disponibilité dans 24 heures.">Quick booking inquiry — we'll confirm availability within 24 hours.</p>
+			<a href="#booking" class="btn">Make a Booking</a>
+		</div>
+	</section>
+
+
+
+
+
+	<!-- Pricing Section HTML -->
+<section id="pricing" class="pricing-section">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-tag" data-en="Pricing Plans" data-es="Planes de Precios" data-fr="Plans de Tarification">Pricing Plans</span>
+            <h2 data-en="Flexible Pricing for Your Stay" data-es="Precios Flexibles para Tu Estancia" data-fr="Tarification Flexible pour Votre Séjour">Flexible Pricing for Your Stay</h2>
+            <p class="section-subtitle" data-en="Choose from nightly, weekly, or monthly rates with built-in discounts." data-es="Elige entre tarifas nocturas, semanales o mensuales con descuentos." data-fr="Choisissez parmi les tarifs nuit, semaine ou mois avec réductions.">Choose from nightly, weekly, or monthly rates with built-in discounts.</p>
+        </div>
+
+        <!-- Pricing Cards -->
+        <div class="pricing-cards">
+            <div class="price-card nightly-card active" data-type="nightly">
+                <div class="card-header">
+                    <h3 data-en="Nightly Rate" data-es="Tarifa Nocturna" data-fr="Tarif Nuit">Nightly Rate</h3>
+                    <p class="price"><span>$200</span><span class="unit">/night</span></p>
+                </div>
+                <ul class="features">
+                    <li><i class="fas fa-check"></i> <span data-en="No discounts" data-es="Sin descuentos" data-fr="Sans réductions">No discounts</span></li>
+                    <li><i class="fas fa-check"></i> <span data-en="Flexible checkout" data-es="Salida flexible" data-fr="Départ flexible">Flexible checkout</span></li>
+                    <li><i class="fas fa-check"></i> <span data-en="Best for short stays" data-es="Mejor para estadías cortas" data-fr="Meilleur pour les courts séjours">Best for short stays</span></li>
+                </ul>
+            </div>
+
+            <div class="price-card weekly-card" data-type="weekly">
+                <div class="badge-popular"><span data-en="Popular" data-es="Popular" data-fr="Populaire">Popular</span></div>
+                <div class="card-header">
+                    <h3 data-en="Weekly Rate" data-es="Tarifa Semanal" data-fr="Tarif Semaine">Weekly Rate</h3>
+                    <p class="price"><span>$1,200</span><span class="unit">/7 nights</span></p>
+                    <p class="savings" data-en="Save 14% ($200)" data-es="Ahorra 14% ($200)" data-fr="Économisez 14% ($200)">Save 14% ($200)</p>
+                </div>
+                <ul class="features">
+                    <li><i class="fas fa-check"></i> <span>~$171/night</span></li>
+                    <li><i class="fas fa-check"></i> <span data-en="5% additional discount" data-es="Descuento adicional 5%" data-fr="Réduction supplémentaire 5%">5% additional discount</span></li>
+                    <li><i class="fas fa-check"></i> <span data-en="Perfect for mid-stays" data-es="Perfecto para estancias medianas" data-fr="Parfait pour les séjours moyens">Perfect for mid-stays</span></li>
+                </ul>
+            </div>
+
+            <div class="price-card monthly-card" data-type="monthly">
+                <div class="card-header">
+                    <h3 data-en="Monthly Rate" data-es="Tarifa Mensual" data-fr="Tarif Mois">Monthly Rate</h3>
+                    <p class="price"><span>$4,000</span><span class="unit">/month</span></p>
+                    <p class="savings" data-en="Save 33% ($2,000)" data-es="Ahorra 33% ($2,000)" data-fr="Économisez 33% ($2,000)">Save 33% ($2,000)</p>
+                </div>
+                <ul class="features">
+                    <li><i class="fas fa-check"></i> <span>~$133/night</span></li>
+                    <li><i class="fas fa-check"></i> <span data-en="Best value" data-es="Mejor valor" data-fr="Meilleure valeur">Best value</span></li>
+                    <li><i class="fas fa-check"></i> <span data-en="Extended stay comfort" data-es="Comodidad de estadía extendida" data-fr="Confort de séjour prolongé">Extended stay comfort</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Quick Price Calculator -->
+        <div class="price-calculator-box">
+            <h3 data-en="Calculate Your Price" data-es="Calcula Tu Precio" data-fr="Calculez Votre Prix">Calculate Your Price</h3>
+            <div class="calc-inputs">
+                <div class="calc-group">
+                    <label data-en="Check-in" data-es="Entrada" data-fr="Arrivée">Check-in</label>
+                    <input type="date" id="calc-checkin" required>
+                </div>
+                <div class="calc-group">
+                    <label data-en="Check-out" data-es="Salida" data-fr="Départ">Check-out</label>
+                    <input type="date" id="calc-checkout" required>
+                </div>
+                <button class="reserve-btn" id="calc-btn" data-en="Calculate" data-es="Calcular" data-fr="Calculer">Calculate</button>
+            </div>
+            <div id="calc-result" class="calc-result hidden">
+                <p data-en="Total:" data-es="Total:" data-fr="Total:">Total: <span id="calc-total">$0</span> for <span id="calc-nights">0</span> nights</p>
+            </div>
+        </div>
+    </div>
+</section>
+	
+
+
+
+
+
+	<section class="booking-section" id="booking">
+		<div class="container">
+			<div class="booking-header">
+				<p class="booking-tag" data-en="READY TO STAY?" data-es="¿LISTO PARA QUEDARSE?" data-fr="PRÊT À SÉJOURNER?">READY TO STAY?</p>
+				<h2 data-en="Complete Your Reservation" data-es="Completa Tu Reserva" data-fr="Complétez Votre Réservation">Complete Your Reservation</h2>
+				<p class="booking-desc" data-en="Fill out the form below and we'll confirm your dates within 24 hours." data-es="Completa el formulario y confirmaremos tus fechas en 24 horas." data-fr="Remplissez le formulaire et nous confirmerons vos dates dans 24 heures.">Fill out the form below and we'll confirm your dates within 24 hours.</p>
+			</div>
+
+			<div class="booking-wrapper">
+				<!-- Left: Form -->
+				<div class="booking-form-container">
+					<form id="bookingForm" class="booking-form">
+						<!-- Personal Information -->
+						<div class="form-section">
+							<h3 data-en="Guest Information" data-es="Información del Huésped" data-fr="Informations sur le Client">Guest Information</h3>
+							
+							<div class="form-group">
+								<label for="name" data-en="Full Name *" data-es="Nombre Completo *" data-fr="Nom Complet *">Full Name *</label>
+								<input type="text" id="name" name="name" placeholder="John Doe" required>
+								<span class="error-msg" id="name-error"></span>
+							</div>
+
+							<div class="form-row">
+								<div class="form-group">
+									<label for="email" data-en="Email Address *" data-es="Correo Electrónico *" data-fr="Adresse Email *">Email Address *</label>
+									<input type="email" id="email" name="email" placeholder="john@example.com" required>
+									<span class="error-msg" id="email-error"></span>
+								</div>
+								<div class="form-group">
+									<label for="phone" data-en="Phone Number *" data-es="Número de Teléfono *" data-fr="Numéro de Téléphone *">Phone Number *</label>
+									<input type="tel" id="phone" name="phone" placeholder="+1 (555) 123-4567" required>
+									<span class="error-msg" id="phone-error"></span>
+								</div>
+							</div>
+						</div>
+
+						<!-- Stay Details -->
+						<div class="form-section">
+							<h3 data-en="Stay Details" data-es="Detalles de la Estancia" data-fr="Détails du Séjour">Stay Details</h3>
+							
+							<div class="form-row">
+								<div class="form-group">
+									<label for="checkin" data-en="Check-in Date *" data-es="Fecha de Entrada *" data-fr="Date d'Arrivée *">Check-in Date *</label>
+									<div class="date-input-wrapper">
+										<i class="fas fa-calendar"></i>
+										<input type="text" id="checkin" name="checkin" placeholder="Select date" required>
+									</div>
+									<span class="error-msg" id="checkin-error"></span>
+								</div>
+								<div class="form-group">
+									<label for="checkout" data-en="Check-out Date *" data-es="Fecha de Salida *" data-fr="Date de Départ *">Check-out Date *</label>
+									<div class="date-input-wrapper">
+										<i class="fas fa-calendar"></i>
+										<input type="text" id="checkout" name="checkout" placeholder="Select date" required>
+									</div>
+									<span class="error-msg" id="checkout-error"></span>
+								</div>
+							</div>
+
+							<div class="stay-info">
+								<div class="info-item">
+									<span data-en="Duration:" data-es="Duración:" data-fr="Durée:">Duration:</span>
+									<strong id="duration-display">0 nights</strong>
+								</div>
+								<div class="info-item">
+									<span data-en="Estimated Total:" data-es="Total Estimado:" data-fr="Total Estimé:">Estimated Total:</span>
+									<strong id="total-display">$0</strong>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label for="guests" data-en="Number of Guests *" data-es="Número de Huéspedes *" data-fr="Nombre de Clients *">Number of Guests *</label>
+								<div class="guest-selector">
+									<button type="button" class="qty-btn" id="guests-minus"><i class="fas fa-minus"></i></button>
+									<input type="number" id="guests" name="guests" value="1" min="1" max="10" required readonly>
+									<button type="button" class="qty-btn" id="guests-plus"><i class="fas fa-plus"></i></button>
+								</div>
+								<span class="info-text" data-en="Maximum 10 guests" data-es="Máximo 10 huéspedes" data-fr="Maximum 10 clients">Maximum 10 guests</span>
+							</div>
+						</div>
+
+						<!-- Preferences -->
+						<div class="form-section">
+							<!--<h3 data-en="Your Preferences" data-es="Tus Preferencias" data-fr="Vos Préférences">Your Preferences</h3>
+						
+							<div class="form-group">
+								<label data-en="Amenities of Interest" data-es="Servicios de Interés" data-fr="Équipements d'Intérêt">Amenities of Interest</label>
+								<div class="checkbox-group">
+									<label class="checkbox-label">
+										<input type="checkbox" name="amenities" value="wifi"> <span data-en="High-Speed WiFi" data-es="WiFi de Alta Velocidad" data-fr="WiFi Haute Vitesse">High-Speed WiFi</span>
+									</label>
+									<label class="checkbox-label">
+										<input type="checkbox" name="amenities" value="pool"> <span data-en="Swimming Pool" data-es="Piscina" data-fr="Piscine">Swimming Pool</span>
+									</label>
+									<label class="checkbox-label">
+										<input type="checkbox" name="amenities" value="kitchen"> <span data-en="Full Kitchen" data-es="Cocina Completa" data-fr="Cuisine Complète">Full Kitchen</span>
+									</label>
+									<label class="checkbox-label">
+										<input type="checkbox" name="amenities" value="parking"> <span data-en="Free Parking" data-es="Estacionamiento Gratis" data-fr="Stationnement Gratuit">Free Parking</span>
+									</label>
+								</div>
+							</div>
+							--->
+
+							<div class="form-group">
+								<label for="notes" data-en="Special Requests" data-es="Solicitudes Especiales" data-fr="Demandes Spéciales">Special Requests</label>
+								<textarea id="notes" name="notes" placeholder="Tell us about any special needs or preferences..." rows="4"></textarea>
+								<span class="char-count"><span id="char-count">0</span>/500</span>
+							</div>
+						</div>
+
+						
+						<!-- Payment -->
+						<div class="form-section">
+							<h3 data-en="Payment" data-es="Pago" data-fr="Paiement">Payment</h3>
+							<div class="form-group">
+								<label class="radio-label">
+									<input type="radio" name="payment_method" value="bank" checked> <span data-en="Direct Bank Payment" data-es="Pago Directo al Banco" data-fr="Paiement Bancaire Direct">Direct Bank Payment</span>
+								</label>
+								<label class="radio-label">
+									<input type="radio" name="payment_method" value="card"> <span data-en="Credit / Debit Card" data-es="Tarjeta de Crédito / Débito" data-fr="Carte Crédit / Débit">Credit / Debit Card</span>
+								</label>
+								<label class="radio-label">
+									<input type="radio" name="payment_method" value="onarrival"> <span data-en="Pay on Arrival" data-es="Pagar a la Llegada" data-fr="Payer à l'Arrivée">Pay on Arrival</span>
+								</label>
+							
+								<div class="bank-details" id="bankDetails">
+									<p><strong>Company:</strong> Urban Oasis Ltd.</p>
+									<p><strong>Bank:</strong> xxxxxxxx</p>
+									<p><strong>Account Number:</strong> 00000000</p>
+									<p><strong>IBAN:</strong> GB00EXAMP00012345678</p>
+									<p data-en="Please transfer the total amount and upload your payment receipt below." data-es="Por favor transfiera el monto total y cargue su recibo de pago a continuación." data-fr="Veuillez transférer le montant total et télécharger votre reçu de paiement ci-dessous.">Please transfer the total amount and upload your payment receipt below.</p>
+								</div>
+							
+								<!-- Card details (informational) -->
+								<div class="bank-details" id="cardDetails" style="display:none;">
+									<p data-en="We will contact you to securely take card details or provide a secure payment link." data-es="Nos pondremos en contacto para tomar los datos de la tarjeta de forma segura o proporcionar un enlace de pago seguro." data-fr="Nous vous contacterons pour récupérer les coordonnées de la carte en toute sécurité ou fournir un lien de paiement sécurisé.">We will contact you to securely take card details or provide a secure payment link.</p>
+									<p><em data-en="No card details are stored on this site." data-es="No se almacenan detalles de la tarjeta en este sitio." data-fr="Aucun détail de carte n'est stocké sur ce site.">No card details are stored on this site.</em></p>
+								</div>
+							
+								<!-- Pay on arrival info -->
+								<div class="bank-details" id="onArrivalDetails" style="display:none;">
+									<p data-en="Please be ready to pay in cash or card at check-in." data-es="Tenga listos efectivo o tarjeta al registrarse." data-fr="Veuillez être prêt à payer en espèces ou par carte à l'arrivée.">Please be ready to pay in cash or card at check-in.</p>
+								</div>
+							</div>
+							<div class="form-group" id="receiptGroup">
+								<label for="paymentReceipt" data-en="Upload Payment Receipt (PDF or image)" data-es="Cargar Recibo de Pago (PDF o imagen)" data-fr="Télécharger le Reçu de Paiement (PDF ou image)">Upload Payment Receipt (PDF or image)</label>
+								<input type="file" id="paymentReceipt" name="paymentReceipt" accept="image/*,.pdf">
+								<span class="error-msg" id="receipt-error"></span>
+							</div>
+						</div>
+					
+						<!-- Privacy Policy -->
+						<div class="form-section">
+							<p>
+								Your personal information is protected. Please review our 
+								<a href="privacy.html" class="terms-link">privacy policy</a>
+							</p>
+						</div>
+					
+						<!-- Terms -->
+						<div class="form-section">
+							<label class="checkbox-label checkbox-large">
+								<input type="checkbox" id="terms" name="terms" required>
+								<span>
+									I agree to the 
+									<a href="#" id="open-terms" class="terms-link">terms and conditions</a> 
+									and understand the cancellation policy
+								</span>
+							</label>
+							<span class="error-msg" id="terms-error"></span>
+						</div>
+						<!-- Submit Button -->
+						<button type="submit" class="reserve-btn submit-btn" data-en="Complete Reservation" data-es="Completar Reserva" data-fr="Confirmer la Réservation">Complete Reservation</button>
+					</form>
+
+
+
+					<!-- Form Message -->
+					<div id="formMessage" class="form-message"></div>
+				</div>
+
+				<!-- Right: Summary -->
+				<div class="booking-summary">
+					<h3 data-en="Booking Summary" data-es="Resumen de Reserva" data-fr="Résumé de la Réservation">Booking Summary</h3>
+					
+					<div class="summary-item">
+						<span data-en="Check-in" data-es="Entrada" data-fr="Arrivée">Check-in</span>
+						<strong id="summary-checkin">—</strong>
+					</div>
+					<div class="summary-item">
+						<span data-en="Check-out" data-es="Salida" data-fr="Départ">Check-out</span>
+						<strong id="summary-checkout">—</strong>
+					</div>
+					<div class="summary-item">
+						<span data-en="Number of Nights" data-es="Número de Noches" data-fr="Nombre de Nuits">Number of Nights</span>
+						<strong id="summary-nights">0</strong>
+					</div>
+					<div class="summary-item">
+						<span data-en="Number of Guests" data-es="Número de Huéspedes" data-fr="Nombre de Clients">Number of Guests</span>
+						<strong id="summary-guests">1</strong>
+					</div>
+					
+					<hr class="summary-divider">
+					
+					<div class="summary-item breakdown">
+						<span data-en="Base Price" data-es="Precio Base" data-fr="Prix de Base">Base Price</span>
+						<span id="summary-base">$0</span>
+					</div>
+					<div class="summary-item breakdown" id="discount-row" style="display: none;">
+						<span data-en="Discount" data-es="Descuento" data-fr="Remise">Discount</span>
+						<span class="discount" id="summary-discount">-$0</span>
+					</div>
+					
+					<div class="summary-item total">
+						<span data-en="Total Price" data-es="Precio Total" data-fr="Prix Total">Total Price</span>
+						<strong id="summary-total">$0</strong>
+					</div>
+
+					<div class="summary-info">
+						<i class="fas fa-info-circle"></i>
+						<p data-en="Free cancellation up to 48 hours before check-in" data-es="Cancelación gratuita hasta 48 horas antes de la entrada" data-fr="Annulation gratuite jusqu'à 48 heures avant l'arrivée">Free cancellation up to 48 hours before check-in</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Footer -->
+	<footer class="footer">
+		<div class="footer-container">
+			<div class="footer-about reveal">
+				<h3>Urban Oasis</h3>
+				<p>Experience the perfect blend of urban convenience and tranquil comfort in the heart of Killeen, Texas.</p>
+			</div>
+			<div class="footer-links reveal">
+				<h4>Quick Links</h4>
+				<ul>
+					<li><a href="amenities.html">Amenities</a></li>
+					<li><a href="gallery.html">Gallery</a></li>
+					<li><a href="booking.html">Book Now</a></li>
+					<li><a href="location.html">Location</a></li>
+				</ul>
+			</div>
+			<div class="footer-contact reveal">
+				<h4>Contact</h4>
+				<p>5110 Daybreak Dr<br>Killeen, TX 76542</p>
+				<p>+1 (254) 555-1234</p>
+				<p>hello@urbanoasis.com</p>
+			</div>
+		</div>
+		<div class="footer-bottom reveal">
+			<p>© 2026 Urban Oasis. All rights reserved.</p>
+			<div><a href="privacy.html" data-en="Privacy Policy" data-es="Política de Privacidad" data-fr="Politique de Confidentialité">Privacy Policy</a> | <a href="terms.html" data-en="Terms of Service" data-es="Términos de Servicio" data-fr="Conditions de Service">Terms of Service</a></div>
+		</div>
+	</footer>
+
+
+
+<!-- Terms & Conditions Modal -->
+<div id="termsModal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal" id="closeTerms">×</span>
+        <h2>Terms and Conditions</h2>
+        <p class="modal-update-date">Last updated: January 28, 2026</p>
+        
+        <div class="modal-body" id="termsContent">
+            <h3>1. Overview</h3>
+            <p>Welcome to Urban Oasis. These Terms of Service govern your use of our website, booking system, and rental properties. By accessing or booking through Urban Oasis, you agree to be bound by these terms.</p>
+
+            <h3>2. User Eligibility</h3>
+            <p>To use Urban Oasis services, you must:</p>
+            <ul>
+                <li>Be at least 18 years of age</li>
+                <li>Provide accurate and complete information during registration</li>
+                <li>Maintain a valid payment method on file</li>
+                <li>Not have any outstanding disputes or violations with Urban Oasis</li>
+                <li>Comply with all applicable laws and regulations</li>
+            </ul>
+
+            <h3>3. Booking Terms</h3>
+            <p><strong>Reservation Confirmation</strong><br>A booking is only confirmed after payment is successfully processed and you receive a confirmation email. Urban Oasis reserves the right to cancel any booking that violates these terms or our house rules.</p>
+            <p><strong>Check-in and Check-out</strong><br>Check-in time is 3:00 PM and check-out time is 11:00 AM. Early check-in or late check-out may be available for an additional fee, subject to availability. Urban Oasis is not responsible for early arrivals or luggage storage before official check-in time.</p>
+
+            <h3>4. Cancellation & Refund Policy</h3>
+            <p><strong>Cancellation by Guest</strong></p>
+            <ul>
+                <li><strong>Full Refund</strong>: Cancellations made more than 10 days before check-in date</li>
+                <li><strong>50% Refund</strong>: Cancellations made 5 days before check-in date</li>
+                <li><strong>No Refund</strong>: Cancellations made less than 7 days before check-in date</li>
+            </ul>
+            <p>Refunds will be processed within 5-7 business days after cancellation approval.</p>
+            <p><strong>Cancellation by Urban Oasis</strong><br>Urban Oasis may cancel any reservation with full refund if: (a) the property becomes unavailable due to unforeseen circumstances; (b) there are safety concerns; (c) illegal activity is suspected; or (d) terms of service violations occur.</p>
+
+            <h3>5. Payment Terms</h3>
+            <p>Payment is due upon booking confirmation and must be made through our secure online payment system. We accept all major credit cards and digital payment methods. Pricing includes accommodation only; taxes and service fees are calculated and displayed at checkout.</p>
+            <p><strong>Late Payment</strong><br>If payment is not received by the due date, Urban Oasis reserves the right to cancel the reservation without refund. Additionally, a late fee of 5% of the booking total may be applied.</p>
+
+            <h3>6. Guest Responsibilities</h3>
+            <p>Guests are responsible for:</p>
+            <ul>
+                <li>Maintaining the cleanliness and condition of the property</li>
+                <li>Adhering to all house rules and local regulations</li>
+                <li>Reporting any damages, maintenance issues, or concerns immediately</li>
+                <li>Not disturbing other guests or neighbors</li>
+                <li>Securing the property when leaving</li>
+            </ul>
+
+            <h3>7. Property Rules</h3>
+            <p>The following rules must be observed at all times:</p>
+            <ul>
+                <li>No smoking inside the property (smoking is permitted on outdoor terraces only)</li>
+                <li>No pets unless explicitly approved and documented</li>
+                <li>No loud music or excessive noise after 10:00 PM</li>
+                <li>No parties or gatherings exceeding the maximum occupancy limit</li>
+                <li>No unauthorized guests staying overnight</li>
+                <li>Guests must vacate by 11:00 AM on check-out day</li>
+            </ul>
+            <p>Violation of these rules may result in immediate eviction without refund.</p>
+
+            <h3>8. Liability & Damages</h3>
+            <p>Urban Oasis is not responsible for:</p>
+            <ul>
+                <li>Personal injury or accidents on the property</li>
+                <li>Loss, theft, or damage to personal belongings</li>
+                <li>Natural disasters or acts of God</li>
+                <li>Interruption of utilities or services beyond reasonable control</li>
+            </ul>
+            <p><strong>Guest Liability</strong><br>Guests are fully liable for any damages to the property caused by negligence, misuse, or violation of house rules. Damage assessments will be conducted within 24 hours of checkout. Repair costs will be charged to the guest's payment method on file. Urban Oasis may pursue legal action for damages exceeding $5,000.</p>
+
+            <h3>9. Dispute Resolution</h3>
+            <p>In the event of a dispute between guest and Urban Oasis:</p>
+            <ol>
+                <li>The guest must contact Urban Oasis within 48 hours of the issue occurring</li>
+                <li>Urban Oasis will provide written response within 5 business days</li>
+                <li>If unresolved, disputes may be escalated to mediation or arbitration</li>
+                <li>Legal proceedings, if necessary, will be governed by Texas law</li>
+            </ol>
+
+            <h3>10. Intellectual Property</h3>
+            <p>All content on the Urban Oasis website, including text, images, logos, and designs, are protected by copyright and intellectual property laws. Unauthorized reproduction, distribution, or use of this content is strictly prohibited. Guests may not photograph or record the property for commercial purposes without written consent.</p>
+
+            <h3>11. Modifications to Terms</h3>
+            <p>Urban Oasis reserves the right to modify these Terms of Service at any time. Changes will be effective immediately upon posting to the website. Continued use of the website or booking system after modifications constitutes acceptance of the new terms. We recommend reviewing these terms regularly to stay informed of any updates.</p>
+
+            <h3>12. Contact Information</h3>
+            <p>If you have questions about these Terms of Service, please contact us:</p>
+            <p><strong>Urban Oasis</strong><br>
+            5110 Daybreak Dr<br>
+            Killeen, TX 76541<br>
+            Email: hello@urbanoasis.com<br>
+            Phone: +1 (407) 900-6046</p>
+            <p>We aim to respond to all inquiries within 30 business days.</p>
+
+
+            <p style="text-align: center; font-weight: 600; font-size: 1em; color: #333; margin-top: 40px;">
+                By accepting these terms, you confirm that you have read, understood, and agree to be bound by all the above provisions, including the cancellation policy and guest responsibilities.
+            </p>
+        </div>
+
+        <div class="modal-footer">
+            <button id="closeTermsBtn" class="reserve-btn">I've read and agree</button>
+        </div>
+    </div>
+</div>
+
+
+
+	<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+	<script src="script.js"></script>
+	<script>
+		// Initialize Flatpickr for date fields
+		const today = new Date().toISOString().split('T')[0];
+		
+		const checkInPicker = flatpickr('#checkin', {
+			minDate: today,
+			dateFormat: 'M j, Y',
+			onChange: function() {
+				updatePriceCalculation();
+			}
+		});
+
+		const checkOutPicker = flatpickr('#checkout', {
+			minDate: today,
+			dateFormat: 'M j, Y',
+			onChange: function() {
+				updatePriceCalculation();
+			}
+		});
+
+		// Calculate price on date change
+		function updatePriceCalculation() {
+			const checkin = document.getElementById('checkin').value;
+			const checkout = document.getElementById('checkout').value;
+			
+			if (checkin && checkout) {
+				const checkInDate = new Date(checkin);
+				const checkOutDate = new Date(checkout);
+				
+				if (checkOutDate > checkInDate) {
+					const nights = Math.floor((checkOutDate - checkInDate) / (1000 * 60 * 60 * 24));
+					const rates = { nightly: 200, weekly: 1200, monthly: 4000 };
+					let total = 0;
+					let daysPerWeek = Math.floor(nights / 7);
+					let remainingDays = nights % 7;
+					
+					total = (daysPerWeek * rates.weekly) + (remainingDays * 200);
+					
+					document.getElementById('duration-display').textContent = nights + ' night' + (nights !== 1 ? 's' : '');
+					document.getElementById('total-display').textContent = '$' + total.toLocaleString();
+					document.getElementById('summary-nights').textContent = nights;
+					document.getElementById('summary-base').textContent = '$' + (nights * 200).toLocaleString();
+					
+					// Calculate discount
+					if (nights >= 30) {
+						const basePrice = nights * 200;
+						const discount = basePrice - 4000;
+						document.getElementById('summary-discount').textContent = '-$' + Math.round(discount).toLocaleString();
+						document.getElementById('discount-row').style.display = 'flex';
+					} else if (nights >= 7) {
+						const basePrice = nights * 200;
+						const discount = basePrice - total;
+						document.getElementById('summary-discount').textContent = '-$' + Math.round(discount).toLocaleString();
+						document.getElementById('discount-row').style.display = 'flex';
+					} else {
+						document.getElementById('discount-row').style.display = 'none';
+					}
+					
+					document.getElementById('summary-total').textContent = '$' + total.toLocaleString();
+					document.getElementById('summary-checkin').textContent = checkin;
+					document.getElementById('summary-checkout').textContent = checkout;
+				}
+			}
+		}
+
+		// Guest quantity buttons
+		document.getElementById('guests-minus').addEventListener('click', function(e) {
+			e.preventDefault();
+			const guestInput = document.getElementById('guests');
+			if (guestInput.value > 1) guestInput.value--;
+			document.getElementById('summary-guests').textContent = guestInput.value;
+		});
+
+		document.getElementById('guests-plus').addEventListener('click', function(e) {
+			e.preventDefault();
+			const guestInput = document.getElementById('guests');
+			if (guestInput.value < 10) guestInput.value++;
+			document.getElementById('summary-guests').textContent = guestInput.value;
+		});
+
+		// Price Calculator Button Handler
+		const calcBtn = document.getElementById('calc-btn');
+		if (calcBtn) {
+			calcBtn.addEventListener('click', function(e) {
+				e.preventDefault();
+				const calcCheckin = document.getElementById('calc-checkin').value;
+				const calcCheckout = document.getElementById('calc-checkout').value;
+				
+				if (!calcCheckin || !calcCheckout) {
+					alert('Please select both check-in and check-out dates.');
+					return;
+				}
+				
+				const checkInDate = new Date(calcCheckin);
+				const checkOutDate = new Date(calcCheckout);
+				
+				if (checkOutDate <= checkInDate) {
+					alert('Check-out date must be after check-in date.');
+					return;
+				}
+				
+				const nights = Math.ceil((checkOutDate - checkInDate) / (1000 * 60 * 60 * 24));
+				let total = 0;
+				let daysPerWeek = Math.floor(nights / 7);
+				let remainingDays = nights % 7;
+				
+				total = (daysPerWeek * 1200) + (remainingDays * 200);
+				
+				document.getElementById('calc-total').textContent = '$' + total.toLocaleString();
+				document.getElementById('calc-nights').textContent = nights;
+				document.getElementById('calc-result').classList.remove('hidden');
+			});
+		}
+
+		// Character count for notes
+		document.getElementById('notes').addEventListener('input', function() {
+			document.getElementById('char-count').textContent = this.value.length;
+		});
+
+		// Payment method show/hide behavior
+		function updatePaymentUI() {
+			const method = document.querySelector('input[name="payment_method"]:checked') ? document.querySelector('input[name="payment_method"]:checked').value : '';
+			const bankDetails = document.getElementById('bankDetails');
+			const receiptGroup = document.getElementById('receiptGroup');
+			const cardDetails = document.getElementById('cardDetails');
+			const onArrival = document.getElementById('onArrivalDetails');
+
+			if (bankDetails) bankDetails.style.display = (method === 'bank') ? 'block' : 'none';
+			if (receiptGroup) receiptGroup.style.display = (method === 'bank') ? 'block' : 'none';
+			if (cardDetails) cardDetails.style.display = (method === 'card') ? 'block' : 'none';
+			if (onArrival) onArrival.style.display = (method === 'onarrival') ? 'block' : 'none';
+		}
+
+		document.querySelectorAll('input[name="payment_method"]').forEach(r => r.addEventListener('change', updatePaymentUI));
+		// Initialize on load
+		updatePaymentUI();
+
+		// Form validation and submission
+		const bookingForm = document.getElementById('bookingForm');
+		bookingForm.addEventListener('submit', function(e) {
+			e.preventDefault();
+
+			// Validation
+			let isValid = true;
+			const errorElements = document.querySelectorAll('.error-msg');
+			errorElements.forEach(el => el.textContent = '');
+
+			const name = document.getElementById('name').value.trim();
+			const email = document.getElementById('email').value.trim();
+			const phone = document.getElementById('phone').value.trim();
+			const checkin = document.getElementById('checkin').value;
+			const checkout = document.getElementById('checkout').value;
+			const terms = document.getElementById('terms').checked;
+			const paymentMethod = document.querySelector('input[name="payment_method"]:checked') ? document.querySelector('input[name="payment_method"]:checked').value : '';
+			const receiptInput = document.getElementById('paymentReceipt');
+
+			if (!name) {
+				document.getElementById('name-error').textContent = 'Please enter your name';
+				isValid = false;
+			}
+
+			if (!email || !email.includes('@')) {
+				document.getElementById('email-error').textContent = 'Please enter a valid email';
+				isValid = false;
+			}
+
+			if (!phone) {
+				document.getElementById('phone-error').textContent = 'Please enter your phone number';
+				isValid = false;
+			}
+
+			if (!checkin) {
+				document.getElementById('checkin-error').textContent = 'Please select check-in date';
+				isValid = false;
+			}
+
+			if (!checkout) {
+				document.getElementById('checkout-error').textContent = 'Please select check-out date';
+				isValid = false;
+			}
+
+			if (!terms) {
+				document.getElementById('terms-error').textContent = 'You must agree to the terms';
+				isValid = false;
+			}
+
+			// Require payment receipt when Direct Bank Payment is selected
+			if (paymentMethod === 'bank') {
+				if (!receiptInput || receiptInput.files.length === 0) {
+					document.getElementById('receipt-error').textContent = 'Please upload your payment receipt for bank transfer';
+					isValid = false;
+				}
+			}
+
+			if (!isValid) return;
+
+			// Prepare booking data
+			const formData = {
+				name: name,
+				email: email,
+				phone: phone,
+				checkin: checkin,
+				checkout: checkout,
+				guests: document.getElementById('guests').value,
+				amenities: Array.from(document.querySelectorAll('input[name="amenities"]:checked')).map(cb => cb.value),
+				notes: document.getElementById('notes').value,
+				total: document.getElementById('summary-total').textContent,
+				payment_method: paymentMethod,
+				receipt: (receiptInput && receiptInput.files && receiptInput.files.length) ? receiptInput.files[0].name : ''
+			};
+
+			// Log the booking (in production, send to server)
+			console.log('Booking submitted:', formData);
+
+			// Show success message
+			const messageDiv = document.getElementById('formMessage');
+			messageDiv.innerHTML = '<div class="success-message"><i class="fas fa-check-circle"></i> <strong>Booking inquiry received!</strong><br>We will contact you at ' + email + ' within 24 hours to confirm availability.</div>';
+			messageDiv.style.display = 'block';
+			messageDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+			// Reset form
+			bookingForm.reset();
+			setTimeout(() => {
+				messageDiv.style.display = 'none';
+			}, 5000);
+		});
+	</script>
+</body>
+</html>

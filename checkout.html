@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Checkout — Urban Oasis</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .checkout-container {
+            display: grid;
+            grid-template-columns: 1fr 350px;
+            gap: 40px;
+            padding: 40px 0;
+        }
+        .checkout-form-section {
+            background: #f9f9f9;
+            padding: 30px;
+            border-radius: 8px;
+        }
+        .checkout-form-section h2 {
+            font-size: 24px;
+            margin-bottom: 25px;
+            color: #333;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+            font-size: 14px;
+        }
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: 14px;
+        }
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #8B4513;
+            box-shadow: 0 0 0 3px rgba(139, 69, 19, 0.1);
+        }
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        .payment-option {
+            margin-bottom: 12px;
+        }
+        .payment-option input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        .payment-option label {
+            display: flex;
+            align-items: center;
+            margin: 0;
+            font-weight: 500;
+        }
+        .payment-option label span {
+            font-size: 15px;
+            color: #333;
+        }
+        .payment-option label:hover {
+            color: #8B4513;
+        }
+        .payment-option input[type="radio"]:checked + span {
+            color: #2f6f62;
+            font-weight: 600;
+        }
+        .bank-details-info {
+            background: #f0f0f0;
+            padding: 12px;
+            border-radius: 4px;
+            margin-top: 10px;
+            font-size: 13px;
+            line-height: 1.6;
+            display: none;
+        }
+        .bank-details-info p {
+            margin: 0;
+            color: #555;
+        }
+        .bank-details-info.show {
+            display: block;
+        }
+        .order-summary-fixed {
+            background: #fff;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 25px;
+            height: fit-content;
+            position: sticky;
+            top: 20px;
+        }
+        .order-summary-fixed h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            font-size: 14px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .summary-row span {
+            color: #666;
+        }
+        .summary-row strong {
+            color: #333;
+        }
+        .summary-row.total {
+            border-bottom: none;
+            border-top: 2px solid #e0e0e0;
+            padding-top: 12px;
+            margin-top: 12px;
+            font-size: 16px;
+            font-weight: 700;
+        }
+        .checkout-actions {
+            display: grid;
+            gap: 10px;
+            margin-top: 25px;
+        }
+        .checkout-actions button {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        .checkout-actions .edit-btn {
+            background: #f0f0f0;
+            color: #333;
+        }
+        .checkout-actions .edit-btn:hover {
+            background: #e0e0e0;
+        }
+        .checkout-actions .complete-btn {
+            background: #2f6f62;
+            color: #fff;
+        }
+        .checkout-actions .complete-btn:hover {
+            background: #0a2923;
+        }
+        .info-box {
+            background: #f0f7ff;
+            border-left: 4px solid #8B4513;
+            padding: 12px;
+            margin-top: 20px;
+            font-size: 13px;
+            color: #555;
+        }
+        @media (max-width: 1024px) {
+            .checkout-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            .order-summary-fixed {
+                position: static;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo"><a href="index.html"><img src="images/urban_oasis.png" alt="Urban Oasis Logo">Urban Oasis</a></div>
+        <nav class="nav-links" id="navLinks">
+            <a href="index.html">Home</a>
+            <a href="amenities.html">Amenities</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="location.html">Location</a>
+        </nav>
+        <div class="lang-switcher">
+            <button id="langEn" class="lang-btn active">EN</button>
+            <button id="langEs" class="lang-btn">ES</button>
+            <button id="langFr" class="lang-btn">FR</button>
+        </div>
+        <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+        <div class="menu-overlay" id="menuOverlay"></div>
+    </header>
+
+    <main class="container">
+        <div style="padding: 40px 0;">
+            <h1 style="margin-bottom: 10px;">Complete Your Booking</h1>
+            <p style="color: #666; margin-bottom: 30px;">Fill in your details and select a payment method to finalize your reservation.</p>
+        </div>
+
+        <div class="checkout-container">
+            <!-- Left: Booking Form -->
+            <div>
+                <!-- Guest Info -->
+                <div class="checkout-form-section">
+                    <h2>Guest Information</h2>
+                    
+                    <div class="form-group">
+                        <label for="co-name">Full Name *</label>
+                        <input type="text" id="co-name" placeholder="John Doe" required>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="co-email">Email Address *</label>
+                            <input type="email" id="co-email" placeholder="john@example.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="co-phone">Phone Number *</label>
+                            <input type="tel" id="co-phone" placeholder="+1 (555) 123-4567" required>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Payment Method -->
+                <div class="checkout-form-section">
+                    <h2>Payment Method</h2>
+
+                    <div class="payment-option">
+                        <label>
+                            <input type="radio" name="payment_method" value="bank" checked>
+                            <span>Direct Bank Transfer</span>
+                        </label>
+                    </div>
+                    <div class="bank-details-info show" id="bankInfo">
+                        <p><strong>Company:</strong> Urban Oasis Ltd.</p>
+                        <p><strong>Bank Account:</strong> xxxxxxxx</p>
+                        <p><strong>IBAN:</strong> GB00EXAMP00012345678</p>
+                        <p style="margin-top: 8px;">Please transfer the total amount and save your receipt.</p>
+                    </div>
+
+                    <div class="payment-option">
+                        <label>
+                            <input type="radio" name="payment_method" value="card">
+                            <span>Credit / Debit Card</span>
+                        </label>
+                    </div>
+                    <div class="bank-details-info" id="cardInfo">
+                        <p>We will contact you to securely take your card details or provide a secure payment link.</p>
+                        <p><em>No card details are stored on this site.</em></p>
+                    </div>
+
+                    <div class="payment-option">
+                        <label>
+                            <input type="radio" name="payment_method" value="onarrival">
+                            <span>Pay on Arrival</span>
+                        </label>
+                    </div>
+                    <div class="bank-details-info" id="arrivalInfo">
+                        <p>Be ready to pay in cash or card at check-in.</p>
+                    </div>
+                </div>
+
+                <div class="info-box">
+                    <i class="fas fa-info-circle"></i> Free cancellation up to 48 hours before check-in. By proceeding, you agree to our <a href="terms.html" style="color: #8B4513; text-decoration: none; font-weight: 600;">terms and conditions</a>.
+                </div>
+            </div>
+
+            <!-- Right: Order Summary -->
+            <div class="order-summary-fixed">
+                <h3>Order Summary</h3>
+
+                <div class="summary-row">
+                    <span>Check-in</span>
+                    <strong id="co-checkin">—</strong>
+                </div>
+                <div class="summary-row">
+                    <span>Check-out</span>
+                    <strong id="co-checkout">—</strong>
+                </div>
+                <div class="summary-row">
+                    <span>Total Nights</span>
+                    <strong id="co-nights">0</strong>
+                </div>
+                <div class="summary-row">
+                    <span>Base Rate</span>
+                    <strong id="co-base">$0.00</strong>
+                </div>
+                <div class="summary-row">
+                    <span>Tax (4%)</span>
+                    <strong id="co-tax">$0.00</strong>
+                </div>
+                <div class="summary-row total">
+                    <span>Total (incl. tax)</span>
+                    <strong id="co-total">$0.00</strong>
+                </div>
+
+                <div class="checkout-actions">
+                    <button class="edit-btn" id="edit-dates">← Edit Dates</button>
+                    <button class="complete-btn" id="complete-booking">Complete Booking</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-about">
+                <h3>Urban Oasis</h3>
+                <p>Experience the perfect blend of urban convenience and tranquil comfort.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="amenities.html">Amenities</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="booking.html">Book Now</a></li>
+                    <li><a href="location.html">Location</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>Contact</h4>
+                <p>5110 Daybreak Dr<br>Killeen, TX 76542</p>
+                <p>+1 (254) 555-1234</p>
+                <p>hello@urbanoasis.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Urban Oasis. All rights reserved.</p>
+            <div><a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></div>
+        </div>
+    </footer>
+
+    <script>
+        // Populate order summary from localStorage
+        (function() {
+            const get = key => localStorage.getItem(key);
+            const checkin = get('selectedCheckIn') || '—';
+            const checkout = get('selectedCheckOut') || '—';
+            const nights = get('availableNights') || '0';
+            const base = parseFloat(get('estimateBase') || '0');
+            const tax = parseFloat(get('estimateTax') || '0');
+            const total = parseFloat(get('estimateTotal') || (base + tax));
+
+            document.getElementById('co-checkin').textContent = checkin;
+            document.getElementById('co-checkout').textContent = checkout;
+            document.getElementById('co-nights').textContent = nights;
+            document.getElementById('co-base').textContent = '$' + base.toLocaleString(undefined, {minimumFractionDigits:2, maximumFractionDigits:2});
+            document.getElementById('co-tax').textContent = '$' + tax.toLocaleString(undefined, {minimumFractionDigits:2, maximumFractionDigits:2});
+            document.getElementById('co-total').textContent = '$' + total.toLocaleString(undefined, {minimumFractionDigits:2, maximumFractionDigits:2});
+
+            // Payment method toggle
+            const radios = document.querySelectorAll('input[name="payment_method"]');
+            const bankInfo = document.getElementById('bankInfo');
+            const cardInfo = document.getElementById('cardInfo');
+            const arrivalInfo = document.getElementById('arrivalInfo');
+
+            function updatePaymentInfo() {
+                bankInfo.classList.remove('show');
+                cardInfo.classList.remove('show');
+                arrivalInfo.classList.remove('show');
+
+                const selected = document.querySelector('input[name="payment_method"]:checked').value;
+                if (selected === 'bank') bankInfo.classList.add('show');
+                else if (selected === 'card') cardInfo.classList.add('show');
+                else if (selected === 'onarrival') arrivalInfo.classList.add('show');
+            }
+
+            radios.forEach(radio => {
+                radio.addEventListener('change', updatePaymentInfo);
+            });
+
+            // Edit dates button
+            document.getElementById('edit-dates').addEventListener('click', function() {
+                window.location.href = 'index.html#availability';
+            });
+
+            // Complete booking button
+            document.getElementById('complete-booking').addEventListener('click', async function() {
+                const name = document.getElementById('co-name').value.trim();
+                const email = document.getElementById('co-email').value.trim();
+                const phone = document.getElementById('co-phone').value.trim();
+                const payment = document.querySelector('input[name="payment_method"]:checked').value;
+
+                if (!name) {
+                    alert('Please enter your full name.');
+                    return;
+                }
+                if (!email) {
+                    alert('Please enter your email address.');
+                    return;
+                }
+                if (!phone) {
+                    alert('Please enter your phone number.');
+                    return;
+                }
+
+                // Show loading state
+                const btn = document.getElementById('complete-booking');
+                const originalText = btn.textContent;
+                btn.disabled = true;
+                btn.textContent = 'Processing...';
+
+                try {
+                    // Prepare booking data
+                    const bookingData = {
+                        name: name,
+                        email: email,
+                        phone: phone,
+                        checkin: checkin,
+                        checkout: checkout,
+                        nights: nights,
+                        basePrice: base.toFixed(2),
+                        tax: tax.toFixed(2),
+                        total: total.toFixed(2),
+                        paymentMethod: payment
+                    };
+
+                    // Send to backend email endpoint
+                    const response = await fetch('http://localhost:5000/api/bookings/submit', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(bookingData)
+                    });
+
+                    const result = await response.json();
+
+                    if (response.ok && result.success) {
+                        // Store guest info in localStorage
+                        try {
+                            localStorage.setItem('guestName', name);
+                            localStorage.setItem('guestEmail', email);
+                            localStorage.setItem('guestPhone', phone);
+                            localStorage.setItem('paymentMethod', payment);
+                            localStorage.setItem('bookingComplete', '1');
+                        } catch (e) {
+                            console.warn('Could not store guest info', e);
+                        }
+
+                        alert('Thank you, ' + name + '! Your booking has been confirmed. A confirmation email has been sent to ' + email);
+                        window.location.href = 'index.html';
+                    } else {
+                        throw new Error(result.error || 'Failed to submit booking');
+                    }
+                } catch (error) {
+                    console.error('Error:', error);
+                    alert('Error submitting booking: ' + error.message + '\n\nPlease try again or contact us at hello@urbanoasis.com');
+                    btn.disabled = false;
+                    btn.textContent = originalText;
+                }
+            });
+        })();
+    </script>
+</body>
+</html>
