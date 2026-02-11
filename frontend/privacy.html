@@ -1,0 +1,284 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Privacy Policy for Urban Oasis - Learn how we protect your personal information and data.">
+	<meta name="robots" content="index, follow">
+	<title>Urban Oasis — Privacy Policy</title>
+	<link rel="icon" type="image/x-icon" href="{% static 'images/favicon.png' %}">
+	<link rel="stylesheet" href="{% static 'static/style.css' %}">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+	<header class="navbar">
+		<div class="logo">
+			<a href="{% url 'index' %}">
+				<img src="{% static 'images/urban_oasis.png' %}" alt="Urban Oasis Logo">Urban Oasis</a>
+		</div>
+		<nav class="nav-links" id="navLinks">
+			<a href="{% url 'index' %}" data-en="Home" data-es="Inicio" data-fr="Accueil">Home</a>
+			<a href="{% url 'amenities' %}" data-en="Amenities" data-es="Servicios" data-fr="Équipements">Amenities</a>
+			<a href="{% url 'gallery' %}" data-en="Gallery" data-es="Galería" data-fr="Galerie">Gallery</a>
+			<a href="{% url 'location' %}" data-en="Location" data-es="Ubicación" data-fr="Emplacement">Location</a>
+		</nav>
+		<a href="{% url 'booking' %}"><button class="reserve-btn" data-en="Book Now" data-es="Reservar" data-fr="Réserver">Book Now</button></a>
+		<div class="lang-switcher">
+			<button id="langEn" class="lang-btn active">EN</button>
+			<button id="langEs" class="lang-btn">ES</button>
+			<button id="langFr" class="lang-btn">FR</button>
+		</div>
+		<div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+		<div class="menu-overlay" id="menuOverlay"></div>
+	</header>
+
+	<section class="hero" style="background-image: url('images/photo1.jpg');">
+		<div class="overlay"></div>
+		<div class="hero-content">
+			<p class="welcome" data-en="YOUR PRIVACY" data-es="TU PRIVACIDAD" data-fr="VOTRE CONFIDENTIALITÉ">YOUR PRIVACY</p>
+			<h1 data-en="Privacy Policy" data-es="Política de Privacidad" data-fr="Politique de Confidentialité">Privacy Policy</h1>
+			<p class="subtitle" data-en="We are committed to protecting your personal information and your right to privacy." data-es="Nos comprometemos a proteger tu información personal y tu derecho a la privacidad." data-fr="Nous nous engageons à protéger vos informations personnelles et votre droit à la confidentialité.">We are committed to protecting your personal information and your right to privacy.</p>
+		</div>
+	</section>
+
+	<section class="policy-section">
+		<div class="container">
+			<div class="policy-content">
+				<!-- Table of Contents -->
+				<div class="policy-toc">
+					<h2 data-en="Contents" data-es="Contenidos" data-fr="Contenus">Contents</h2>
+					<ul>
+						<li><a href="#overview" data-en="Overview" data-es="Descripción General" data-fr="Aperçu">Overview</a></li>
+						<li><a href="#information-we-collect" data-en="Information We Collect" data-es="Información que Recopilamos" data-fr="Informations que nous collectons">Information We Collect</a></li>
+						<li><a href="#how-we-use" data-en="How We Use Your Information" data-es="Cómo Usamos Tu Información" data-fr="Comment nous utilisons vos informations">How We Use Your Information</a></li>
+						<li><a href="#sharing" data-en="Sharing Your Information" data-es="Compartir Tu Información" data-fr="Partage de vos informations">Sharing Your Information</a></li>
+						<li><a href="#security" data-en="Data Security" data-es="Seguridad de Datos" data-fr="Sécurité des données">Data Security</a></li>
+						<li><a href="#cookies" data-en="Cookies & Tracking" data-es="Cookies y Seguimiento" data-fr="Cookies et suivi">Cookies & Tracking</a></li>
+						<li><a href="#rights" data-en="Your Rights" data-es="Tus Derechos" data-fr="Vos droits">Your Rights</a></li>
+						<li><a href="#contact" data-en="Contact Us" data-es="Contáctenos" data-fr="Nous contacter">Contact Us</a></li>
+					</ul>
+				</div>
+
+				<!-- Main Content -->
+				<div class="policy-main">
+					<!-- Overview -->
+					<div class="policy-section-block" id="overview">
+						<h2 data-en="Overview" data-es="Descripción General" data-fr="Aperçu">Overview</h2>
+						<p data-en="Last Updated: January 28, 2026" data-es="Última Actualización: 28 de Enero de 2026" data-fr="Dernière mise à jour : 28 janvier 2026">Last Updated: January 28, 2026</p>
+						<p data-en="This Privacy Policy explains how Urban Oasis ('Company', 'we', 'us', 'our') collects, uses, discloses, and otherwise processes your information, as well as your privacy rights and choices. If you do not agree with our privacy practices, please do not use our services." data-es="Esta Política de Privacidad explica cómo Urban Oasis recopila, utiliza, divulga y procesa de otra manera tu información, así como tus derechos y opciones de privacidad. Si no estás de acuerdo con nuestras prácticas de privacidad, no utilices nuestros servicios." data-fr="Cette politique de confidentialité explique comment Urban Oasis collecte, utilise, divulgue et traite autrement vos informations, ainsi que vos droits et choix en matière de confidentialité. Si vous n'acceptez pas nos pratiques de confidentialité, veuillez ne pas utiliser nos services.">This Privacy Policy explains how Urban Oasis ('Company', 'we', 'us', 'our') collects, uses, discloses, and otherwise processes your information, as well as your privacy rights and choices. If you do not agree with our privacy practices, please do not use our services.</p>
+					</div>
+
+					<!-- Information We Collect -->
+					<div class="policy-section-block" id="information-we-collect">
+						<h2 data-en="Information We Collect" data-es="Información que Recopilamos" data-fr="Informations que nous collectons">Information We Collect</h2>
+						
+						<h3 data-en="Personal Information Provided Directly" data-es="Información Personal Proporcionada Directamente" data-fr="Informations personnelles fournies directement">Personal Information Provided Directly</h3>
+						<p data-en="We collect information you provide directly when you:" data-es="Recopilamos información que proporcionas directamente cuando:" data-fr="Nous collectons les informations que vous fournissez directement lorsque vous :">We collect information you provide directly when you:</p>
+						<ul>
+							<li data-en="Make a booking or reservation" data-es="Realizas una reserva" data-fr="Faites une réservation">Make a booking or reservation</li>
+							<li data-en="Contact us for inquiries or support" data-es="Nos contactas para consultas o soporte" data-fr="Nous contactez pour des demandes ou un support">Contact us for inquiries or support</li>
+							<li data-en="Create an account on our website" data-es="Creas una cuenta en nuestro sitio web" data-fr="Créer un compte sur notre site Web">Create an account on our website</li>
+							<li data-en="Subscribe to our newsletter" data-es="Te suscribes a nuestro boletín" data-fr="Vous abonnez à notre infolettre">Subscribe to our newsletter</li>
+							<li data-en="Provide feedback or reviews" data-es="Proporcionas comentarios o reseñas" data-fr="Fournir des commentaires ou des critiques">Provide feedback or reviews</li>
+						</ul>
+
+						<h3 data-en="Types of Information Collected" data-es="Tipos de Información Recopilada" data-fr="Types d'informations collectées">Types of Information Collected</h3>
+						<ul>
+							<li data-en="Contact Information: Name, email address, phone number, mailing address" data-es="Información de Contacto: Nombre, correo electrónico, número de teléfono, dirección postal" data-fr="Coordonnées : Nom, adresse e-mail, numéro de téléphone, adresse postale">Contact Information: Name, email address, phone number, mailing address</li>
+							<li data-en="Booking Details: Check-in/check-out dates, number of guests, room preferences" data-es="Detalles de Reserva: Fechas de entrada/salida, número de huéspedes, preferencias de habitación" data-fr="Détails de réservation : Dates d'arrivée/départ, nombre de clients, préférences de chambre">Booking Details: Check-in/check-out dates, number of guests, room preferences</li>
+							<li data-en="Payment Information: Processed securely through third-party providers" data-es="Información de Pago: Procesada de forma segura a través de proveedores de terceros" data-fr="Informations de paiement : Traitées de manière sécurisée par des fournisseurs tiers">Payment Information: Processed securely through third-party providers</li>
+							<li data-en="Communication Data: Messages, inquiries, support tickets" data-es="Datos de Comunicación: Mensajes, consultas, tickets de soporte" data-fr="Données de communication : Messages, demandes, tickets d'assistance">Communication Data: Messages, inquiries, support tickets</li>
+							<li data-en="Usage Data: Pages visited, time spent, device information" data-es="Datos de Uso: Páginas visitadas, tiempo dedicado, información del dispositivo" data-fr="Données d'utilisation : Pages consultées, temps passé, informations de l'appareil">Usage Data: Pages visited, time spent, device information</li>
+						</ul>
+
+						<h3 data-en="Information Collected Automatically" data-es="Información Recopilada Automáticamente" data-fr="Informations collectées automatiquement">Information Collected Automatically</h3>
+						<p data-en="We automatically collect certain information when you visit our website, including:" data-es="Recopilamos automáticamente cierta información cuando visitas nuestro sitio web, incluyendo:" data-fr="Nous collectons automatiquement certaines informations lorsque vous visitez notre site Web, notamment :">We automatically collect certain information when you visit our website, including:</p>
+						<ul>
+							<li data-en="IP address and browser type" data-es="Dirección IP y tipo de navegador" data-fr="Adresse IP et type de navigateur">IP address and browser type</li>
+							<li data-en="Pages accessed and time spent on site" data-es="Páginas accedidas y tiempo en el sitio" data-fr="Pages consultées et temps passé sur le site">Pages accessed and time spent on site</li>
+							<li data-en="Referring website information" data-es="Información del sitio web de referencia" data-fr="Informations du site Web de référence">Referring website information</li>
+							<li data-en="Device information (type, OS, screen resolution)" data-es="Información del dispositivo (tipo, SO, resolución de pantalla)" data-fr="Informations de l'appareil (type, système d'exploitation, résolution d'écran)">Device information (type, OS, screen resolution)</li>
+						</ul>
+					</div>
+
+					<!-- How We Use Your Information -->
+					<div class="policy-section-block" id="how-we-use">
+						<h2 data-en="How We Use Your Information" data-es="Cómo Usamos Tu Información" data-fr="Comment nous utilisons vos informations">How We Use Your Information</h2>
+						<p data-en="We use collected information for the following purposes:" data-es="Utilizamos la información recopilada para los siguientes propósitos:" data-fr="Nous utilisons les informations collectées pour les fins suivantes :">We use collected information for the following purposes:</p>
+						<ul>
+							<li data-en="Processing and confirming your reservations" data-es="Procesar y confirmar tus reservas" data-fr="Traiter et confirmer vos réservations">Processing and confirming your reservations</li>
+							<li data-en="Sending booking confirmations and reminders" data-es="Enviar confirmaciones y recordatorios de reserva" data-fr="Envoyer des confirmations et des rappels de réservation">Sending booking confirmations and reminders</li>
+							<li data-en="Responding to your inquiries and customer support" data-es="Responder a tus consultas y soporte al cliente" data-fr="Répondre à vos demandes et assistance à la clientèle">Responding to your inquiries and customer support</li>
+							<li data-en="Sending newsletters and promotional materials (with your consent)" data-es="Enviar boletines y materiales promocionales (con tu consentimiento)" data-fr="Envoyer des infolettres et du matériel promotionnel (avec votre consentement)">Sending newsletters and promotional materials (with your consent)</li>
+							<li data-en="Improving our website and services" data-es="Mejorar nuestro sitio web y servicios" data-fr="Améliorer notre site Web et nos services">Improving our website and services</li>
+							<li data-en="Detecting and preventing fraud and illegal activities" data-es="Detectar y prevenir fraudes y actividades ilegales" data-fr="Détecter et prévenir la fraude et les activités illégales">Detecting and preventing fraud and illegal activities</li>
+							<li data-en="Complying with legal obligations" data-es="Cumplir con las obligaciones legales" data-fr="Respecter les obligations légales">Complying with legal obligations</li>
+						</ul>
+					</div>
+
+					<!-- Sharing Your Information -->
+					<div class="policy-section-block" id="sharing">
+						<h2 data-en="Sharing Your Information" data-es="Compartir Tu Información" data-fr="Partage de vos informations">Sharing Your Information</h2>
+						<p data-en="We may share your information in the following circumstances:" data-es="Podemos compartir tu información en las siguientes circunstancias:" data-fr="Nous pouvons partager vos informations dans les circonstances suivantes :">We may share your information in the following circumstances:</p>
+						
+						<h3 data-en="Service Providers" data-es="Proveedores de Servicios" data-fr="Fournisseurs de services">Service Providers</h3>
+						<p data-en="We share information with third-party service providers who assist us in operating our website and conducting our business, including payment processors, email service providers, and hosting providers. These providers are contractually obligated to use your information only as necessary to provide services to us." data-es="Compartimos información con proveedores de servicios terceros que nos ayudan a operar nuestro sitio web y realizar nuestro negocio, incluidos procesadores de pagos, proveedores de correo electrónico y proveedores de alojamiento. Estos proveedores están contractualmente obligados a utilizar tu información solo según sea necesario para proporcionarnos servicios." data-fr="Nous partageons les informations avec des fournisseurs de services tiers qui nous aident à exploiter notre site Web et à mener nos activités, y compris les processeurs de paiement, les fournisseurs de services de courrier électronique et les fournisseurs d'hébergement. Ces fournisseurs sont contractuellement tenus d'utiliser vos informations uniquement selon les besoins pour nous fournir des services.">We share information with third-party service providers who assist us in operating our website and conducting our business, including payment processors, email service providers, and hosting providers. These providers are contractually obligated to use your information only as necessary to provide services to us.</p>
+
+						<h3 data-en="Legal Requirements" data-es="Requisitos Legales" data-fr="Exigences légales">Legal Requirements</h3>
+						<p data-en="We may disclose your information when required by law or when we believe in good faith that disclosure is necessary to protect our rights, your safety, or the safety of others." data-es="Podemos divulgar tu información cuando sea requerido por ley o cuando creamos de buena fe que la divulgación es necesaria para proteger nuestros derechos, tu seguridad o la seguridad de otros." data-fr="Nous pouvons divulguer vos informations lorsque cela est requis par la loi ou lorsque nous croyons de bonne foi que la divulgation est nécessaire pour protéger nos droits, votre sécurité ou la sécurité d'autrui.">We may disclose your information when required by law or when we believe in good faith that disclosure is necessary to protect our rights, your safety, or the safety of others.</p>
+
+						<h3 data-en="Business Transfers" data-es="Transferencias de Negocios" data-fr="Transferts d'entreprise">Business Transfers</h3>
+						<p data-en="If Urban Oasis is involved in a merger, acquisition, or sale of assets, your information may be transferred as part of that transaction. We will provide notice before your information becomes subject to a different privacy policy." data-es="Si Urban Oasis está involucrada en una fusión, adquisición o venta de activos, tu información puede ser transferida como parte de esa transacción. Proporcionaremos aviso antes de que tu información esté sujeta a una política de privacidad diferente." data-fr="Si Urban Oasis est impliquée dans une fusion, une acquisition ou une vente d'actifs, vos informations pourraient être transférées dans le cadre de cette transaction. Nous fournirons un avis avant que vos informations ne soient soumises à une politique de confidentialité différente.">If Urban Oasis is involved in a merger, acquisition, or sale of assets, your information may be transferred as part of that transaction. We will provide notice before your information becomes subject to a different privacy policy.</p>
+					</div>
+
+					<!-- Data Security -->
+					<div class="policy-section-block" id="security">
+						<h2 data-en="Data Security" data-es="Seguridad de Datos" data-fr="Sécurité des données">Data Security</h2>
+						<p data-en="We implement appropriate technical and organizational measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction. These measures include:" data-es="Implementamos medidas técnicas y organizativas apropiadas para proteger tu información personal contra acceso no autorizado, alteración, divulgación o destrucción. Estas medidas incluyen:" data-fr="Nous mettrons en œuvre des mesures techniques et organisationnelles appropriées pour protéger vos informations personnelles contre l'accès non autorisé, la modification, la divulgation ou la destruction. Ces mesures incluent :">We implement appropriate technical and organizational measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction. These measures include:</p>
+						<ul>
+							<li data-en="SSL/TLS encryption for data in transit" data-es="Encriptación SSL/TLS para datos en tránsito" data-fr="Chiffrement SSL/TLS pour les données en transit">SSL/TLS encryption for data in transit</li>
+							<li data-en="Secure password requirements for user accounts" data-es="Requisitos de contraseña segura para cuentas de usuario" data-fr="Exigences de mot de passe sécurisé pour les comptes utilisateur">Secure password requirements for user accounts</li>
+							<li data-en="Regular security audits and updates" data-es="Auditorías de seguridad y actualizaciones regulares" data-fr="Audits de sécurité et mises à jour réguliers">Regular security audits and updates</li>
+							<li data-en="Limited access to personal information by staff" data-es="Acceso limitado a información personal por parte del personal" data-fr="Accès limité aux informations personnelles par le personnel">Limited access to personal information by staff</li>
+							<li data-en="Compliance with applicable data protection regulations" data-es="Cumplimiento de regulaciones aplicables de protección de datos" data-fr="Conformité aux réglementations applicables en matière de protection des données">Compliance with applicable data protection regulations</li>
+						</ul>
+						<p data-en="However, no method of transmission over the Internet is 100% secure. While we strive to protect your information, we cannot guarantee absolute security." data-es="Sin embargo, ningún método de transmisión por Internet es 100% seguro. Si bien nos esforzamos por proteger tu información, no podemos garantizar seguridad absoluta." data-fr="Cependant, aucune méthode de transmission sur Internet n'est 100 % sécurisée. Bien que nous nous efforcions de protéger vos informations, nous ne pouvons garantir une sécurité absolue.">However, no method of transmission over the Internet is 100% secure. While we strive to protect your information, we cannot guarantee absolute security.</p>
+					</div>
+
+					<!-- Cookies & Tracking -->
+					<div class="policy-section-block" id="cookies">
+						<h2 data-en="Cookies & Tracking Technologies" data-es="Cookies y Tecnologías de Seguimiento" data-fr="Cookies et technologies de suivi">Cookies & Tracking Technologies</h2>
+						<p data-en="Our website uses cookies and similar tracking technologies to enhance your user experience. Cookies are small data files stored on your device that help us understand how you use our website." data-es="Nuestro sitio web utiliza cookies y tecnologías de seguimiento similares para mejorar tu experiencia de usuario. Las cookies son pequeños archivos de datos almacenados en tu dispositivo que nos ayudan a entender cómo utilizas nuestro sitio web." data-fr="Notre site Web utilise des cookies et des technologies de suivi similaires pour améliorer votre expérience utilisateur. Les cookies sont de petits fichiers de données stockés sur votre appareil qui nous aident à comprendre comment vous utilisez notre site Web.">Our website uses cookies and similar tracking technologies to enhance your user experience. Cookies are small data files stored on your device that help us understand how you use our website.</p>
+
+						<h3 data-en="Types of Cookies We Use" data-es="Tipos de Cookies que Utilizamos" data-fr="Types de cookies que nous utilisons">Types of Cookies We Use</h3>
+						<ul>
+							<li data-en="Essential Cookies: Required for basic website functionality" data-es="Cookies Esenciales: Necesarias para la funcionalidad básica del sitio web" data-fr="Cookies essentiels : Nécessaires au fonctionnement de base du site Web">Essential Cookies: Required for basic website functionality</li>
+							<li data-en="Analytics Cookies: Help us understand visitor behavior and website performance" data-es="Cookies de Análisis: Nos ayudan a comprender el comportamiento de los visitantes y el desempeño del sitio web" data-fr="Cookies d'analyse : Nous aident à comprendre le comportement des visiteurs et les performances du site Web">Analytics Cookies: Help us understand visitor behavior and website performance</li>
+							<li data-en="Preference Cookies: Remember your settings and preferences" data-es="Cookies de Preferencia: Recuerdan tus configuraciones y preferencias" data-fr="Cookies de préférence : Mémorisez vos paramètres et préférences">Preference Cookies: Remember your settings and preferences</li>
+						</ul>
+
+						<h3 data-en="Managing Cookies" data-es="Gestionar Cookies" data-fr="Gestion des cookies">Managing Cookies</h3>
+						<p data-en="You can control cookies through your browser settings. Most browsers allow you to refuse cookies or alert you when cookies are being sent. Please note that disabling cookies may affect website functionality." data-es="Puedes controlar las cookies a través de la configuración de tu navegador. La mayoría de los navegadores te permiten rechazar cookies o alertarte cuando se envían cookies. Ten en cuenta que deshabilitar las cookies puede afectar la funcionalidad del sitio web." data-fr="Vous pouvez contrôler les cookies via les paramètres de votre navigateur. La plupart des navigateurs vous permettent de refuser les cookies ou vous avertissent lorsque des cookies sont envoyés. Veuillez noter que la désactivation des cookies peut affecter les fonctionnalités du site Web.">You can control cookies through your browser settings. Most browsers allow you to refuse cookies or alert you when cookies are being sent. Please note that disabling cookies may affect website functionality.</p>
+					</div>
+
+					<!-- Your Rights -->
+					<div class="policy-section-block" id="rights">
+						<h2 data-en="Your Privacy Rights" data-es="Tus Derechos de Privacidad" data-fr="Vos droits en matière de confidentialité">Your Privacy Rights</h2>
+						<p data-en="Depending on your location, you may have the following rights:" data-es="Dependiendo de tu ubicación, puedes tener los siguientes derechos:" data-fr="Selon votre emplacement, vous pouvez avoir les droits suivants :">Depending on your location, you may have the following rights:</p>
+
+						<h3 data-en="Right to Access" data-es="Derecho de Acceso" data-fr="Droit d'accès">Right to Access</h3>
+						<p data-en="You have the right to request what personal information we hold about you and how we use it." data-es="Tienes derecho a solicitar qué información personal tenemos sobre ti y cómo la utilizamos." data-fr="Vous avez le droit de demander quelles informations personnelles nous détenons à votre sujet et comment nous les utilisons.">You have the right to request what personal information we hold about you and how we use it.</p>
+
+						<h3 data-en="Right to Correction" data-es="Derecho de Corrección" data-fr="Droit de correction">Right to Correction</h3>
+						<p data-en="You may request correction of inaccurate or incomplete information we hold about you." data-es="Puedes solicitar la corrección de información inexacta o incompleta que tenemos sobre ti." data-fr="Vous pouvez demander la correction des informations inexactes ou incomplètes que nous détenons à votre sujet.">You may request correction of inaccurate or incomplete information we hold about you.</p>
+
+						<h3 data-en="Right to Deletion" data-es="Derecho de Eliminación" data-fr="Droit à l'oubli">Right to Deletion</h3>
+						<p data-en="You may request deletion of your personal information, subject to certain exceptions." data-es="Puedes solicitar la eliminación de tu información personal, sujeto a ciertas excepciones." data-fr="Vous pouvez demander la suppression de vos informations personnelles, sous réserve de certaines exceptions.">You may request deletion of your personal information, subject to certain exceptions.</p>
+
+						<h3 data-en="Right to Opt-Out" data-es="Derecho a Optar por No Participar" data-fr="Droit de désinscription">Right to Opt-Out</h3>
+						<p data-en="You may opt out of receiving promotional communications by clicking the unsubscribe link in any email or contacting us directly." data-es="Puedes optar por no recibir comunicaciones promocionales haciendo clic en el enlace de baja en cualquier correo electrónico o contactándonos directamente." data-fr="Vous pouvez vous désinscrire de la réception de communications promotionnelles en cliquant sur le lien de désinscription dans tout e-mail ou en nous contactant directement.">You may opt out of receiving promotional communications by clicking the unsubscribe link in any email or contacting us directly.</p>
+
+						<h3 data-en="Right to Data Portability" data-es="Derecho a la Portabilidad de Datos" data-fr="Droit à la portabilité des données">Right to Data Portability</h3>
+						<p data-en="You may request a copy of your personal information in a structured, commonly used, and machine-readable format." data-es="Puedes solicitar una copia de tu información personal en un formato estructurado, comúnmente utilizado y legible por máquina." data-fr="Vous pouvez demander une copie de vos informations personnelles dans un format structuré, couramment utilisé et lisible par machine.">You may request a copy of your personal information in a structured, commonly used, and machine-readable format.</p>
+
+						<p data-en="To exercise any of these rights, please contact us using the information provided in the Contact Us section." data-es="Para ejercer cualquiera de estos derechos, comunícate con nosotros utilizando la información proporcionada en la sección Contáctenos." data-fr="Pour exercer l'un de ces droits, veuillez nous contacter en utilisant les informations fournies dans la section Nous contacter.">To exercise any of these rights, please contact us using the information provided in the Contact Us section.</p>
+					</div>
+
+					<!-- Retention of Information -->
+					<div class="policy-section-block">
+						<h2 data-en="Data Retention" data-es="Retención de Datos" data-fr="Conservation des données">Data Retention</h2>
+						<p data-en="We retain your personal information only for as long as necessary to fulfill the purposes for which it was collected, unless longer retention is required by law. Booking information is typically retained for tax and legal purposes for a minimum of 7 years." data-es="Retenemos tu información personal solo durante el tiempo necesario para cumplir con los propósitos para los que fue recopilada, a menos que la ley requiera una retención más prolongada. La información de reserva se retiene típicamente con fines fiscales y legales durante un mínimo de 7 años." data-fr="Nous conservons vos informations personnelles uniquement aussi longtemps que nécessaire pour atteindre les fins pour lesquelles elle a été collectée, sauf si la loi exige une conservation plus longue. Les informations de réservation sont généralement conservées à des fins fiscales et juridiques pendant un minimum de 7 ans.">We retain your personal information only for as long as necessary to fulfill the purposes for which it was collected, unless longer retention is required by law. Booking information is typically retained for tax and legal purposes for a minimum of 7 years.</p>
+					</div>
+
+					<!-- Third-Party Links -->
+					<div class="policy-section-block">
+						<h2 data-en="Third-Party Links" data-es="Enlaces de Terceros" data-fr="Liens tiers">Third-Party Links</h2>
+						<p data-en="Our website may contain links to third-party websites. We are not responsible for the privacy practices of these external sites. We encourage you to review their privacy policies before providing any personal information." data-es="Nuestro sitio web puede contener enlaces a sitios web de terceros. No somos responsables de las prácticas de privacidad de estos sitios externos. Te alentamos a revisar sus políticas de privacidad antes de proporcionar cualquier información personal." data-fr="Notre site Web peut contenir des liens vers des sites Web tiers. Nous ne sommes pas responsables des pratiques de confidentialité de ces sites externes. Nous vous encourageons à examiner leurs politiques de confidentialité avant de fournir toute information personnelle.">Our website may contain links to third-party websites. We are not responsible for the privacy practices of these external sites. We encourage you to review their privacy policies before providing any personal information.</p>
+					</div>
+
+					<!-- Children's Privacy -->
+					<div class="policy-section-block">
+						<h2 data-en="Children's Privacy" data-es="Privacidad de Menores" data-fr="Confidentialité des enfants">Children's Privacy</h2>
+						<p data-en="Our services are not directed to children under the age of 13. We do not knowingly collect personal information from children under 13. If we learn that we have collected personal information from a child under 13, we will delete such information promptly." data-es="Nuestros servicios no están dirigidos a menores de 13 años. No recopilamos intencionalmente información personal de menores de 13 años. Si descubrimos que hemos recopilado información personal de un menor de 13 años, eliminaremos esa información de inmediato." data-fr="Nos services ne s'adressent pas aux enfants de moins de 13 ans. Nous ne collectons pas sciemment d'informations personnelles auprès d'enfants de moins de 13 ans. Si nous apprenons que nous avons collecté des informations personnelles auprès d'un enfant de moins de 13 ans, nous supprimerons ces informations rapidement.">Our services are not directed to children under the age of 13. We do not knowingly collect personal information from children under 13. If we learn that we have collected personal information from a child under 13, we will delete such information promptly.</p>
+					</div>
+
+					<!-- Policy Updates -->
+					<div class="policy-section-block">
+						<h2 data-en="Updates to This Policy" data-es="Actualizaciones de Esta Política" data-fr="Mises à jour de cette politique">Updates to This Policy</h2>
+						<p data-en="We may update this Privacy Policy from time to time to reflect changes in our practices or for other operational, legal, or regulatory reasons. We will notify you of any material changes by posting the updated policy on this page and updating the 'Last Updated' date." data-es="Podemos actualizar esta Política de Privacidad de vez en cuando para reflejar cambios en nuestras prácticas o por otras razones operativas, legales o regulatorias. Te notificaremos sobre cualquier cambio material publicando la política actualizada en esta página y actualizando la fecha de 'Última Actualización'." data-fr="Nous pouvons mettre à jour cette politique de confidentialité de temps à autre pour refléter les changements dans nos pratiques ou pour d'autres raisons opérationnelles, légales ou réglementaires. Nous vous aviserons de tout changement matériel en publiant la politique mise à jour sur cette page et en mettant à jour la date de « Dernière mise à jour ».">We may update this Privacy Policy from time to time to reflect changes in our practices or for other operational, legal, or regulatory reasons. We will notify you of any material changes by posting the updated policy on this page and updating the 'Last Updated' date.</p>
+					</div>
+
+					<!-- Contact Us -->
+					<div class="policy-section-block" id="contact">
+						<h2 data-en="Contact Us" data-es="Contáctenos" data-fr="Nous contacter">Contact Us</h2>
+						<p data-en="If you have questions about this Privacy Policy or our privacy practices, please contact us:" data-es="Si tienes preguntas sobre esta Política de Privacidad o nuestras prácticas de privacidad, contáctanos:" data-fr="Si vous avez des questions sur cette politique de confidentialité ou nos pratiques en matière de confidentialité, veuillez nous contacter :">If you have questions about this Privacy Policy or our privacy practices, please contact us:</p>
+						
+						<div class="contact-info">
+							<p><strong data-en="Urban Oasis" data-es="Urban Oasis" data-fr="Urban Oasis">Urban Oasis</strong></p>
+							<p>618 North College Street<br>Killeen, TX 76541</p>
+							<p>📧 <a href="mailto:hello@urbanoasis.com">hello@urbanoasis.com</a></p>
+							<p>📞 <a href="tel:+14079006046">+1 (407) 900-6046</a></p>
+							<p data-en="Response Time: We aim to respond to all privacy inquiries within 30 days." data-es="Tiempo de Respuesta: Nos esforzamos por responder a todas las consultas de privacidad dentro de 30 días." data-fr="Délai de réponse : Nous visons à répondre à toutes les demandes relatives à la confidentialité dans les 30 jours.">Response Time: We aim to respond to all privacy inquiries within 30 days.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Footer -->
+	<footer class="footer">
+		<div class="footer-container">
+			<div class="footer-about reveal">
+				<h3>Urban Oasis</h3>
+				<p>Experience the perfect blend of urban convenience and tranquil comfort in the heart of Killeen, Texas.</p>
+			</div>
+			<div class="footer-links reveal">
+				<h4>Quick Links</h4>
+				<ul>
+					<li><a href="{% url 'index' %}" data-en="Home" data-es="Inicio" data-fr="Accueil">Home</a></li>
+					<li><a href="{% url 'amenities' %}" data-en="Amenities" data-es="Servicios" data-fr="Équipements">Amenities</a></li>
+					<li><a href="{% url 'gallery' %}" data-en="Gallery" data-es="Galería" data-fr="Galerie">Gallery</a></li>
+					<li><a href="{% url 'booking' %}" data-en="Book Now" data-es="Reservar" data-fr="Réserver">Book Now</a></li>
+					<li><a href="{% url 'location' %}" data-en="Location" data-es="Ubicación" data-fr="Emplacement">Location</a></li>
+				</ul>
+			</div>
+			<div class="footer-contact reveal">
+				<h4>Contact</h4>
+				<p>618 North College Street<br>Killeen, TX 76541</p>
+				<p>+1 (407) 900-6046</p>
+				<p>hello@urbanoasis.com</p>
+			</div>
+		</div>
+		<div class="footer-bottom reveal">
+			<p>© 2026 Urban Oasis. All rights reserved.</p>
+			<div><a href="{% url 'privacy' %}" data-en="Privacy Policy" data-es="Política de Privacidad" data-fr="Politique de Confidentialité">Privacy Policy</a> | <a href="{% url 'terms' %}" data-en="Terms of Service" data-es="Términos de Servicio" data-fr="Conditions de Service">Terms of Service</a></div>
+		</div>
+	</footer>
+
+	<script src="{% static 'js/script.js' %}"></script>
+	<script>
+		// Language Switcher
+		const langBtns = document.querySelectorAll('.lang-btn');
+		langBtns.forEach(btn => {
+			btn.addEventListener('click', () => {
+				langBtns.forEach(b => b.classList.remove('active'));
+				btn.classList.add('active');
+				const lang = btn.id.replace('lang','').toLowerCase();
+
+				document.querySelectorAll('[data-en]').forEach(el => {
+					const text = el.getAttribute(`data-${lang}`);
+					if(text) {
+						if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+							el.placeholder = text;
+						} else {
+							el.textContent = text;
+						}
+					}
+				});
+			});
+		});
+	</script>
+</body>
+</html>

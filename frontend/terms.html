@@ -1,0 +1,288 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Book your stay at Urban Oasis - secure your dates and send an inquiry.">
+	<title>Urban Oasis — Booking</title>
+	<link rel="icon" type="image/x-icon" href="{% static 'static/images/favicon.png' %}">
+	<link rel="stylesheet" href="{% static 'static/style.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+	<header class="navbar">
+		<div class="logo">
+        	<a href="{% url 'index' %}">
+          	<img src="{% static 'images/urban_oasis.png' %}" alt="Urban Oasis Logo">Urban Oasis</a>
+      	</div>
+		<nav class="nav-links" id="navLinks">
+			<a href="{% url 'index' %}" data-en="Home" data-es="Inicio" data-fr="Accueil">Home</a>
+			<a href="{% url 'amenities' %}" data-en="Amenities" data-es="Servicios" data-fr="Équipements">Amenities</a>
+			<a href="{% url 'gallery' %}" data-en="Gallery" data-es="Galería" data-fr="Galerie">Gallery</a>
+			<a href="{% url 'location' %}" data-en="Location" data-es="Ubicación" data-fr="Emplacement">Location</a>
+		</nav>
+		<a href="{% url 'booking' %}"><button class="reserve-btn" data-en="Book Now" data-es="Reservar" data-fr="Réserver">Book Now</button></a>
+		<div class="lang-switcher">
+			<button id="langEn" class="lang-btn active">EN</button>
+			<button id="langEs" class="lang-btn">ES</button>
+			<button id="langFr" class="lang-btn">FR</button>
+		</div>
+		<div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+		<div class="menu-overlay" id="menuOverlay"></div>
+	</header>
+
+	<!-- Hero Section -->
+	<section class="hero" style="background-image: linear-gradient(135deg, rgba(47, 111, 98, 0.8), rgba(10, 41, 35, 0.8)), url('images/hero-bg.jpg'); background-size: cover; background-position: center;">
+		<div class="container">
+			<div class="hero-content">
+				<h1 data-en="TERMS OF SERVICE" data-es="TÉRMINOS DE SERVICIO" data-fr="CONDITIONS D'UTILISATION">TERMS OF SERVICE</h1>
+				<p data-en="Please read our terms carefully before booking" data-es="Por favor, lea nuestros términos cuidadosamente antes de reservar" data-fr="Veuillez lire nos conditions attentivement avant de réserver">Please read our terms carefully before booking</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- Terms of Service Content -->
+	<section class="policy-section">
+		<div class="container">
+			<div class="policy-content">
+				<!-- Table of Contents Sidebar -->
+				<aside class="policy-toc">
+					<h3 data-en="Quick Navigation" data-es="Navegación Rápida" data-fr="Navigation Rapide">Quick Navigation</h3>
+					<ul>
+						<li><a href="#overview" data-en="Overview" data-es="Descripción General" data-fr="Aperçu">Overview</a></li>
+						<li><a href="#eligibility" data-en="User Eligibility" data-es="Elegibilidad del Usuario" data-fr="Éligibilité de l'Utilisateur">User Eligibility</a></li>
+						<li><a href="#booking" data-en="Booking Terms" data-es="Términos de Reserva" data-fr="Conditions de Réservation">Booking Terms</a></li>
+						<li><a href="#cancellation" data-en="Cancellation & Refunds" data-es="Cancelación y Reembolsos" data-fr="Annulation et Remboursements">Cancellation & Refunds</a></li>
+						<li><a href="#payment" data-en="Payment Terms" data-es="Términos de Pago" data-fr="Conditions de Paiement">Payment Terms</a></li>
+						<li><a href="#responsibilities" data-en="Guest Responsibilities" data-es="Responsabilidades del Huésped" data-fr="Responsabilités des Hôtes">Guest Responsibilities</a></li>
+						<li><a href="#rules" data-en="Property Rules" data-es="Reglas de Propiedad" data-fr="Règles de Propriété">Property Rules</a></li>
+						<li><a href="#liability" data-en="Liability & Damages" data-es="Responsabilidad y Daños" data-fr="Responsabilité et Dommages">Liability & Damages</a></li>
+						<li><a href="#disputes" data-en="Dispute Resolution" data-es="Resolución de Conflictos" data-fr="Résolution des Litiges">Dispute Resolution</a></li>
+						<li><a href="#intellectual" data-en="Intellectual Property" data-es="Propiedad Intelectual" data-fr="Propriété Intellectuelle">Intellectual Property</a></li>
+						<li><a href="#modifications" data-en="Modifications to Terms" data-es="Modificaciones de Términos" data-fr="Modifications des Conditions">Modifications to Terms</a></li>
+						<li><a href="#contact" data-en="Contact Us" data-es="Contáctenos" data-fr="Nous Contacter">Contact Us</a></li>
+					</ul>
+				</aside>
+
+				<!-- Main Content -->
+				<main class="policy-main">
+					<!-- Overview Section -->
+					<section class="policy-section-block" id="overview">
+						<h2 data-en="1. Overview" data-es="1. Descripción General" data-fr="1. Aperçu">1. Overview</h2>
+						<p data-en="Welcome to Urban Oasis. These Terms of Service govern your use of our website, booking system, and rental properties. By accessing or booking through Urban Oasis, you agree to be bound by these terms. These terms were last updated on January 28, 2026." data-es="Bienvenido a Urban Oasis. Estos Términos de Servicio rigen su uso de nuestro sitio web, sistema de reserva y propiedades de alquiler. Al acceder o reservar a través de Urban Oasis, acepta estar vinculado por estos términos. Estos términos se actualizaron por última vez el 28 de enero de 2026." data-fr="Bienvenue chez Urban Oasis. Ces Conditions d'Utilisation régissent votre utilisation de notre site web, système de réservation et propriétés de location. En accédant ou en réservant via Urban Oasis, vous acceptez d'être lié par ces conditions. Ces conditions ont été mises à jour pour la dernière fois le 28 janvier 2026.">Welcome to Urban Oasis. These Terms of Service govern your use of our website, booking system, and rental properties. By accessing or booking through Urban Oasis, you agree to be bound by these terms. These terms were last updated on January 28, 2026.</p>
+					</section>
+
+					<!-- User Eligibility -->
+					<section class="policy-section-block" id="eligibility">
+						<h2 data-en="2. User Eligibility" data-es="2. Elegibilidad del Usuario" data-fr="2. Éligibilité de l'Utilisateur">2. User Eligibility</h2>
+						<p data-en="To use Urban Oasis services, you must:" data-es="Para utilizar los servicios de Urban Oasis, debe:" data-fr="Pour utiliser les services d'Urban Oasis, vous devez:">To use Urban Oasis services, you must:</p>
+						<ul class="policy-list">
+							<li><span data-en="Be at least 18 years of age" data-es="Tener al menos 18 años de edad" data-fr="Être âgé d'au moins 18 ans">Be at least 18 years of age</span></li>
+							<li><span data-en="Provide accurate and complete information during registration" data-es="Proporcionar información precisa y completa durante el registro" data-fr="Fournir des informations précises et complètes lors de l'inscription">Provide accurate and complete information during registration</span></li>
+							<li><span data-en="Maintain a valid payment method on file" data-es="Mantener un método de pago válido registrado" data-fr="Maintenir une méthode de paiement valide en dossier">Maintain a valid payment method on file</span></li>
+							<li><span data-en="Not have any outstanding disputes or violations with Urban Oasis" data-es="No tener ningún conflicto pendiente o violación con Urban Oasis" data-fr="N'avoir aucun litige en suspens ou violation avec Urban Oasis">Not have any outstanding disputes or violations with Urban Oasis</span></li>
+							<li><span data-en="Comply with all applicable laws and regulations" data-es="Cumplir con todas las leyes y regulaciones aplicables" data-fr="Respecter toutes les lois et réglementations applicables">Comply with all applicable laws and regulations</span></li>
+						</ul>
+					</section>
+
+					<!-- Booking Terms -->
+					<section class="policy-section-block" id="booking">
+						<h2 data-en="3. Booking Terms" data-es="3. Términos de Reserva" data-fr="3. Conditions de Réservation">3. Booking Terms</h2>
+						<h3 data-en="Reservation Confirmation" data-es="Confirmación de Reserva" data-fr="Confirmation de Réservation">Reservation Confirmation</h3>
+						<p data-en="A booking is only confirmed after payment is successfully processed and you receive a confirmation email. Urban Oasis reserves the right to cancel any booking that violates these terms or our house rules." data-es="Una reserva solo se confirma después de que el pago se procesa exitosamente y recibe un correo electrónico de confirmación. Urban Oasis se reserva el derecho de cancelar cualquier reserva que viole estos términos o nuestras reglas de la casa." data-fr="Une réservation n'est confirmée qu'après le traitement réussi du paiement et la réception d'un email de confirmation. Urban Oasis se réserve le droit d'annuler toute réservation qui viole ces conditions ou nos règles de la maison.">A booking is only confirmed after payment is successfully processed and you receive a confirmation email. Urban Oasis reserves the right to cancel any booking that violates these terms or our house rules.</p>
+						<h3 data-en="Check-in and Check-out" data-es="Entrada y Salida" data-fr="Enregistrement et Départ">Check-in and Check-out</h3>
+						<p data-en="Check-in time is 3:00 PM and check-out time is 11:00 AM. Early check-in or late check-out may be available for an additional fee, subject to availability. Urban Oasis is not responsible for early arrivals or luggage storage before official check-in time." data-es="La hora de entrada es a las 3:00 PM y la hora de salida es a las 11:00 AM. El registro anticipado o la salida tardía pueden estar disponibles por una tarifa adicional, sujeto a disponibilidad. Urban Oasis no es responsable de llegadas anticipadas o almacenamiento de equipaje antes de la hora de entrada oficial." data-fr="L'heure d'enregistrement est 15h00 et l'heure de départ est 11h00. L'enregistrement anticipé ou le départ tardif peuvent être disponibles moyennant des frais supplémentaires, selon la disponibilité. Urban Oasis n'est pas responsable des arrivées anticipées ou du stockage des bagages avant l'heure d'enregistrement officielle.">Check-in time is 3:00 PM and check-out time is 11:00 AM. Early check-in or late check-out may be available for an additional fee, subject to availability. Urban Oasis is not responsible for early arrivals or luggage storage before official check-in time.</p>
+					</section>
+
+					<!-- Cancellation & Refunds -->
+					<section class="policy-section-block" id="cancellation">
+						<h2 data-en="4. Cancellation & Refund Policy" data-es="4. Política de Cancelación y Reembolso" data-fr="4. Politique d'Annulation et de Remboursement">4. Cancellation & Refund Policy</h2>
+						<h3 data-en="Cancellation by Guest" data-es="Cancelación por parte del Huésped" data-fr="Annulation par l'Hôte">Cancellation by Guest</h3>
+						<ul class="policy-list">
+							<li><span data-en="Full Refund: Cancellations made more than 10 days before check-in date" data-es="Reembolso Completo: Cancelaciones realizadas más de 10 días antes de la fecha de entrada" data-fr="Remboursement Complet: Annulations effectuées plus de 10 jours avant la date d'arrivée">Full Refund: Cancellations made more than 10 days before check-in date</span></li>
+							<li><span data-en="50% Refund: Cancellations made 5 days before check-in date" data-es="50% de Reembolso: Cancelaciones realizadas 5 días antes de la fecha de entrada" data-fr="Remboursement de 50%: Annulations effectuées 5 jours avant la date d'arrivée">50% Refund: Cancellations made 5 days before check-in date</span></li>
+							<li><span data-en="No Refund: Cancellations made less than 7 days before check-in date" data-es="Sin Reembolso: Cancelaciones realizadas menos de 7 días antes de la fecha de entrada" data-fr="Pas de Remboursement: Annulations effectuées moins de 7 jours avant la date d'arrivée">No Refund: Cancellations made less than 7 days before check-in date</span></li>
+						</ul>
+						<p data-en="Refunds will be processed within 5-7 business days after cancellation approval." data-es="Los reembolsos se procesarán dentro de 5-7 días hábiles después de la aprobación de la cancelación." data-fr="Les remboursements seront traités dans les 5-7 jours ouvrables suivant l'approbation de l'annulation.">Refunds will be processed within 5-7 business days after cancellation approval.</p>
+						<h3 data-en="Cancellation by Urban Oasis" data-es="Cancelación por parte de Urban Oasis" data-fr="Annulation par Urban Oasis">Cancellation by Urban Oasis</h3>
+						<p data-en="Urban Oasis may cancel any reservation with full refund if: (a) the property becomes unavailable due to unforeseen circumstances; (b) there are safety concerns; (c) illegal activity is suspected; or (d) terms of service violations occur." data-es="Urban Oasis puede cancelar cualquier reserva con reembolso completo si: (a) la propiedad no está disponible debido a circunstancias imprevistas; (b) hay preocupaciones de seguridad; (c) se sospecha actividad ilegal; o (d) ocurren violaciones de los términos de servicio." data-fr="Urban Oasis peut annuler toute réservation avec remboursement complet si: (a) la propriété devient indisponible en raison de circonstances imprévisibles; (b) il y a des préoccupations en matière de sécurité; (c) une activité illégale est soupçonnée; ou (d) des violations des conditions de service se produisent.">Urban Oasis may cancel any reservation with full refund if: (a) the property becomes unavailable due to unforeseen circumstances; (b) there are safety concerns; (c) illegal activity is suspected; or (d) terms of service violations occur.</p>
+					</section>
+
+					<!-- Payment Terms -->
+					<section class="policy-section-block" id="payment">
+						<h2 data-en="5. Payment Terms" data-es="5. Términos de Pago" data-fr="5. Conditions de Paiement">5. Payment Terms</h2>
+						<p data-en="Payment is due upon booking confirmation and must be made through our secure online payment system. We accept all major credit cards and digital payment methods. Pricing includes accommodation only; taxes and service fees are calculated and displayed at checkout." data-es="El pago se debe realizar al confirmar la reserva y debe realizarse a través de nuestro sistema de pago en línea seguro. Aceptamos todas las principales tarjetas de crédito y métodos de pago digital. El precio incluye solo el alojamiento; los impuestos y las tarifas de servicio se calculan y se muestran en el checkout." data-fr="Le paiement est dû lors de la confirmation de la réservation et doit être effectué via notre système de paiement en ligne sécurisé. Nous acceptons toutes les principales cartes de crédit et les méthodes de paiement numériques. Le prix n'inclut que l'hébergement; les taxes et frais de service sont calculés et affichés à la caisse.">Payment is due upon booking confirmation and must be made through our secure online payment system. We accept all major credit cards and digital payment methods. Pricing includes accommodation only; taxes and service fees are calculated and displayed at checkout.</p>
+						<h3 data-en="Late Payment" data-es="Pago Atrasado" data-fr="Paiement en Retard">Late Payment</h3>
+						<p data-en="If payment is not received by the due date, Urban Oasis reserves the right to cancel the reservation without refund. Additionally, a late fee of 5% of the booking total may be applied." data-es="Si el pago no se recibe en la fecha de vencimiento, Urban Oasis se reserva el derecho de cancelar la reserva sin reembolso. Además, se puede aplicar una tarifa de demora del 5% del total de la reserva." data-fr="Si le paiement n'est pas reçu avant la date d'échéance, Urban Oasis se réserve le droit d'annuler la réservation sans remboursement. De plus, des frais de retard de 5% du total de la réservation peuvent être appliqués.">If payment is not received by the due date, Urban Oasis reserves the right to cancel the reservation without refund. Additionally, a late fee of 5% of the booking total may be applied.</p>
+					</section>
+
+					<!-- Guest Responsibilities -->
+					<section class="policy-section-block" id="responsibilities">
+						<h2 data-en="6. Guest Responsibilities" data-es="6. Responsabilidades del Huésped" data-fr="6. Responsabilités des Hôtes">6. Guest Responsibilities</h2>
+						<p data-en="Guests are responsible for:" data-es="Los huéspedes son responsables de:" data-fr="Les hôtes sont responsables de:">Guests are responsible for:</p>
+						<ul class="policy-list">
+							<li><span data-en="Maintaining the cleanliness and condition of the property" data-es="Mantener la limpieza y el estado de la propiedad" data-fr="Maintenir la propreté et l'état de la propriété">Maintaining the cleanliness and condition of the property</span></li>
+							<li><span data-en="Adhering to all house rules and local regulations" data-es="Cumplir con todas las reglas de la casa y regulaciones locales" data-fr="Respecter toutes les règles de la maison et les réglementations locales">Adhering to all house rules and local regulations</span></li>
+							<li><span data-en="Reporting any damages, maintenance issues, or concerns immediately" data-es="Informar de daños, problemas de mantenimiento o preocupaciones de inmediato" data-fr="Signaler immédiatement tout dommage, problème d'entretien ou préoccupation">Reporting any damages, maintenance issues, or concerns immediately</span></li>
+							<li><span data-en="Not disturbing other guests or neighbors" data-es="No molestar a otros huéspedes o vecinos" data-fr="Ne pas déranger les autres hôtes ou voisins">Not disturbing other guests or neighbors</span></li>
+							<li><span data-en="Securing the property when leaving" data-es="Asegurar la propiedad al salir" data-fr="Sécuriser la propriété en partant">Securing the property when leaving</span></li>
+						</ul>
+					</section>
+
+					<!-- Property Rules -->
+					<section class="policy-section-block" id="rules">
+						<h2 data-en="7. Property Rules" data-es="7. Reglas de Propiedad" data-fr="7. Règles de Propriété">7. Property Rules</h2>
+						<p data-en="The following rules must be observed at all times:" data-es="Las siguientes reglas deben observarse en todo momento:" data-fr="Les règles suivantes doivent être respectées en tout temps:">The following rules must be observed at all times:</p>
+						<ul class="policy-list">
+							<li><span data-en="No smoking inside the property (smoking is permitted on outdoor terraces only)" data-es="No fumar dentro de la propiedad (se permite fumar solo en las terrazas al aire libre)" data-fr="Interdiction de fumer à l'intérieur de la propriété (le tabagisme est autorisé uniquement sur les terrasses extérieures)">No smoking inside the property (smoking is permitted on outdoor terraces only)</span></li>
+							<li><span data-en="No pets unless explicitly approved and documented" data-es="Sin mascotas a menos que estén explícitamente aprobadas y documentadas" data-fr="Pas d'animaux de compagnie sauf approbation explicite et documentée">No pets unless explicitly approved and documented</span></li>
+							<li><span data-en="No loud music or excessive noise after 10:00 PM" data-es="Sin música fuerte ni ruido excesivo después de las 22:00" data-fr="Pas de musique forte ou de bruit excessif après 22h00">No loud music or excessive noise after 10:00 PM</span></li>
+							<li><span data-en="No parties or gatherings exceeding the maximum occupancy limit" data-es="Sin fiestas ni reuniones que excedan el límite de ocupación máxima" data-fr="Pas de fêtes ou de rassemblements dépassant la limite d'occupation maximale">No parties or gatherings exceeding the maximum occupancy limit</span></li>
+							<li><span data-en="No unauthorized guests staying overnight" data-es="Sin huéspedes no autorizados que se queden durante la noche" data-fr="Pas d'hôtes non autorisés restant pendant la nuit">No unauthorized guests staying overnight</span></li>
+							<li><span data-en="Guests must vacate by 11:00 AM on check-out day" data-es="Los huéspedes deben desalojar antes de las 11:00 AM en el día de salida" data-fr="Les hôtes doivent partir avant 11h00 le jour du départ">Guests must vacate by 11:00 AM on check-out day</span></li>
+						</ul>
+						<p data-en="Violation of these rules may result in immediate eviction without refund." data-es="La violación de estas reglas puede resultar en desalojo inmediato sin reembolso." data-fr="La violation de ces règles peut entraîner une expulsion immédiate sans remboursement.">Violation of these rules may result in immediate eviction without refund.</p>
+					</section>
+
+					<!-- Liability & Damages -->
+					<section class="policy-section-block" id="liability">
+						<h2 data-en="8. Liability & Damages" data-es="8. Responsabilidad y Daños" data-fr="8. Responsabilité et Dommages">8. Liability & Damages</h2>
+						<p data-en="Urban Oasis is not responsible for:" data-es="Urban Oasis no es responsable de:" data-fr="Urban Oasis n'est pas responsable de:">Urban Oasis is not responsible for:</p>
+						<ul class="policy-list">
+							<li><span data-en="Personal injury or accidents on the property" data-es="Lesiones personales o accidentes en la propiedad" data-fr="Blessures personnelles ou accidents à la propriété">Personal injury or accidents on the property</span></li>
+							<li><span data-en="Loss, theft, or damage to personal belongings" data-es="Pérdida, robo o daño de pertenencias personales" data-fr="Perte, vol ou endommagement des effets personnels">Loss, theft, or damage to personal belongings</span></li>
+							<li><span data-en="Natural disasters or acts of God" data-es="Desastres naturales o actos de Dios" data-fr="Catastrophes naturelles ou actes de Dieu">Natural disasters or acts of God</span></li>
+							<li><span data-en="Interruption of utilities or services beyond reasonable control" data-es="Interrupción de servicios o servicios fuera del control razonable" data-fr="Interruption des services ou services hors du contrôle raisonnable">Interruption of utilities or services beyond reasonable control</span></li>
+						</ul>
+						<h3 data-en="Guest Liability" data-es="Responsabilidad del Huésped" data-fr="Responsabilité de l'Hôte">Guest Liability</h3>
+						<p data-en="Guests are fully liable for any damages to the property caused by negligence, misuse, or violation of house rules. Damage assessments will be conducted within 24 hours of checkout. Repair costs will be charged to the guest's payment method on file. Urban Oasis may pursue legal action for damages exceeding $5,000." data-es="Los huéspedes son totalmente responsables de cualquier daño a la propiedad causado por negligencia, mal uso o violación de las reglas de la casa. Las evaluaciones de daños se realizarán dentro de 24 horas después de la salida. Los costos de reparación se cargarán al método de pago del huésped registrado. Urban Oasis puede tomar acciones legales por daños que excedan $5,000." data-fr="Les hôtes sont entièrement responsables de tout dommage à la propriété causé par la négligence, l'abus ou la violation des règles de la maison. Les évaluations des dommages seront effectuées dans les 24 heures suivant le départ. Les frais de réparation seront débités de la méthode de paiement de l'hôte en dossier. Urban Oasis peut intenter une action en justice pour les dommages dépassant $5,000.">Guests are fully liable for any damages to the property caused by negligence, misuse, or violation of house rules. Damage assessments will be conducted within 24 hours of checkout. Repair costs will be charged to the guest's payment method on file. Urban Oasis may pursue legal action for damages exceeding $5,000.</p>
+					</section>
+
+					<!-- Dispute Resolution -->
+					<section class="policy-section-block" id="disputes">
+						<h2 data-en="9. Dispute Resolution" data-es="9. Resolución de Conflictos" data-fr="9. Résolution des Litiges">9. Dispute Resolution</h2>
+						<p data-en="In the event of a dispute between guest and Urban Oasis:" data-es="En caso de un conflicto entre huésped y Urban Oasis:" data-fr="En cas de litige entre hôte et Urban Oasis:">In the event of a dispute between guest and Urban Oasis:</p>
+						<ol class="policy-list" style="list-style-type: decimal; padding-left: 2rem;">
+							<li><span data-en="The guest must contact Urban Oasis within 48 hours of the issue occurring" data-es="El huésped debe ponerse en contacto con Urban Oasis dentro de 48 horas después de que ocurra el problema" data-fr="L'hôte doit contacter Urban Oasis dans les 48 heures suivant la survenance du problème">The guest must contact Urban Oasis within 48 hours of the issue occurring</span></li>
+							<li><span data-en="Urban Oasis will provide written response within 5 business days" data-es="Urban Oasis proporcionará una respuesta escrita dentro de 5 días hábiles" data-fr="Urban Oasis fournira une réponse écrite dans les 5 jours ouvrables">Urban Oasis will provide written response within 5 business days</span></li>
+							<li><span data-en="If unresolved, disputes may be escalated to mediation or arbitration" data-es="Si no se resuelve, los conflictos pueden escalarse a mediación o arbitraje" data-fr="Si non résolu, les litiges peuvent être escaladés à la médiation ou l'arbitrage">If unresolved, disputes may be escalated to mediation or arbitration</span></li>
+							<li><span data-en="Legal proceedings, if necessary, will be governed by Texas law" data-es="Los procedimientos legales, si es necesario, se regirán por la ley de Texas" data-fr="Les procédures judiciaires, si nécessaire, seront régies par la loi du Texas">Legal proceedings, if necessary, will be governed by Texas law</span></li>
+						</ol>
+					</section>
+
+					<!-- Intellectual Property -->
+					<section class="policy-section-block" id="intellectual">
+						<h2 data-en="10. Intellectual Property" data-es="10. Propiedad Intelectual" data-fr="10. Propriété Intellectuelle">10. Intellectual Property</h2>
+						<p data-en="All content on the Urban Oasis website, including text, images, logos, and designs, are protected by copyright and intellectual property laws. Unauthorized reproduction, distribution, or use of this content is strictly prohibited. Guests may not photograph or record the property for commercial purposes without written consent." data-es="Todo el contenido del sitio web de Urban Oasis, incluidos textos, imágenes, logotipos y diseños, está protegido por leyes de derechos de autor y propiedad intelectual. La reproducción, distribución o uso no autorizado de este contenido está estrictamente prohibido. Los huéspedes no pueden fotografiar ni grabar la propiedad con fines comerciales sin consentimiento escrito." data-fr="Tout le contenu du site Web d'Urban Oasis, y compris le texte, les images, les logos et les conceptions, est protégé par les lois sur le droit d'auteur et la propriété intellectuelle. La reproduction, la distribution ou l'utilisation non autorisée de ce contenu est strictement interdite. Les hôtes ne peuvent pas photographier ou enregistrer la propriété à des fins commerciales sans consentement écrit.">All content on the Urban Oasis website, including text, images, logos, and designs, are protected by copyright and intellectual property laws. Unauthorized reproduction, distribution, or use of this content is strictly prohibited. Guests may not photograph or record the property for commercial purposes without written consent.</p>
+					</section>
+
+					<!-- Modifications to Terms -->
+					<section class="policy-section-block" id="modifications">
+						<h2 data-en="11. Modifications to Terms" data-es="11. Modificaciones de Términos" data-fr="11. Modifications des Conditions">11. Modifications to Terms</h2>
+						<p data-en="Urban Oasis reserves the right to modify these Terms of Service at any time. Changes will be effective immediately upon posting to the website. Continued use of the website or booking system after modifications constitutes acceptance of the new terms. We recommend reviewing these terms regularly to stay informed of any updates." data-es="Urban Oasis se reserva el derecho de modificar estos Términos de Servicio en cualquier momento. Los cambios serán efectivos inmediatamente después de su publicación en el sitio web. El uso continuo del sitio web o sistema de reserva después de las modificaciones constituye la aceptación de los nuevos términos. Recomendamos revisar estos términos regularmente para mantenerse informado de cualquier actualización." data-fr="Urban Oasis se réserve le droit de modifier ces Conditions d'Utilisation à tout moment. Les modifications seront effectives immédiatement après leur publication sur le site Web. L'utilisation continue du site Web ou du système de réservation après les modifications constitue l'acceptation des nouvelles conditions. Nous vous recommandons de consulter régulièrement ces conditions pour rester informé de toute mise à jour.">Urban Oasis reserves the right to modify these Terms of Service at any time. Changes will be effective immediately upon posting to the website. Continued use of the website or booking system after modifications constitutes acceptance of the new terms. We recommend reviewing these terms regularly to stay informed of any updates.</p>
+					</section>
+
+					<!-- Contact Information -->
+					<section class="policy-section-block" id="contact">
+						<h2 data-en="12. Contact Information" data-es="12. Información de Contacto" data-fr="12. Coordonnées de Contact">12. Contact Information</h2>
+						<p data-en="If you have questions about these Terms of Service, please contact us:" data-es="Si tiene preguntas sobre estos Términos de Servicio, póngase en contacto con nosotros:" data-fr="Si vous avez des questions sur ces Conditions d'Utilisation, veuillez nous contacter:">If you have questions about these Terms of Service, please contact us:</p>
+						<div class="contact-info">
+							<p><strong data-en="Urban Oasis" data-es="Oasis Urbano" data-fr="Oasis Urbain">Urban Oasis</strong></p>
+							<p data-en="Address:" data-es="Dirección:" data-fr="Adresse:">Address:</p>
+							<p>5110 Daybreak Dr<br>Killeen, TX 76541</p>
+							<p data-en="Email:" data-es="Correo Electrónico:" data-fr="Email:">Email:</p>
+							<p><a href="mailto:hello@urbanoasis.com">hello@urbanoasis.com</a></p>
+							<p data-en="Phone:" data-es="Teléfono:" data-fr="Téléphone:">Phone:</p>
+							<p><a href="tel:+14079006046">+1 (407) 900-6046</a></p>
+							<p data-en="We aim to respond to all inquiries within 30 business days." data-es="Nos esforzamos por responder a todas las consultas dentro de 30 días hábiles." data-fr="Nous nous efforçons de répondre à toutes les demandes dans les 30 jours ouvrables.">We aim to respond to all inquiries within 30 business days.</p>
+						</div>
+					</section>
+				</main>
+			</div>
+		</div>
+	</section>
+
+	<!-- Footer -->
+	<footer class="footer">
+		<div class="container">
+			<div class="footer-content">
+				<div class="footer-section">
+					<h3 data-en="Urban Oasis" data-es="Oasis Urbano" data-fr="Oasis Urbain">Urban Oasis</h3>
+					<p data-en="Experience the perfect blend of nature and urban comfort." data-es="Experimente la mezcla perfecta de naturaleza y comodidad urbana." data-fr="Découvrez le mélange parfait de la nature et du confort urbain.">Experience the perfect blend of nature and urban comfort.</p>
+				</div>
+				<div class="footer-section">
+					<h4 data-en="Quick Links" data-es="Enlaces Rápidos" data-fr="Liens Rapides">Quick Links</h4>
+					<ul>
+						<li><a href="{% url 'booking' %}" data-en="Book Now" data-es="Reservar Ahora" data-fr="Réserver Maintenant">Book Now</a></li>
+						<li><a href="{% url 'amenities' %}" data-en="Amenities" data-es="Comodidades" data-fr="Équipements">Amenities</a></li>
+						<li><a href="{% url 'gallery' %}" data-en="Gallery" data-es="Galería" data-fr="Galerie">Gallery</a></li>
+						<li><a href="{% url 'location' %}" data-en="Location" data-es="Ubicación" data-fr="Localisation">Location</a></li>
+					</ul>
+				</div>
+				<div class="footer-section">
+					<h4 data-en="Contact" data-es="Contacto" data-fr="Contact">Contact</h4>
+					<p>5110 Daybreak Dr<br>Killeen, TX 76541</p>
+					<p data-en="Phone:" data-es="Teléfono:" data-fr="Téléphone:">Phone:</p>
+					<p><a href="tel:+14079006046">+1 (407) 900-6046</a></p>
+					<p data-en="Email:" data-es="Correo Electrónico:" data-fr="Email:">Email:</p>
+					<p><a href="mailto:hello@urbanoasisapartment.com">hello@urbanoasisapartment.com</a></p>
+				</div>
+			</div>
+
+			<div class="footer-bottom reveal">
+				<p data-en="© 2026 Urban Oasis. All rights reserved." data-es="© 2026 Urban Oasis. Todos los derechos reservados." data-fr="© 2026 Urban Oasis. Tous droits réservés.">© 2026 Urban Oasis. All rights reserved.</p>
+				<div>
+					<a href="{% url 'privacy' %}" data-en="Privacy Policy" data-es="Política de Privacidad" data-fr="Politique de Confidentialité">Privacy Policy</a> | <a href="{% url 'terms' %}" data-en="Terms of Service" data-es="Términos del Servicio" data-fr="Conditions d'Utilisation">Terms of Service</a>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+	<script src="{% static 'js/script.js' %}"></script>
+
+	<script>
+		// Language Switcher
+		const langBtns = document.querySelectorAll('.lang-btn');
+		langBtns.forEach(btn => {
+			btn.addEventListener('click', () => {
+				langBtns.forEach(b => b.classList.remove('active'));
+				btn.classList.add('active');
+				const lang = btn.id.replace('lang', '').toLowerCase();
+				document.querySelectorAll('[data-en]').forEach(el => {
+					const text = el.getAttribute(`data-${lang}`);
+					if (text) {
+						if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+							el.placeholder = text;
+						} else {
+							el.textContent = text;
+						}
+					}
+				});
+			});
+		});
+
+		// Smooth Scroll for TOC Links
+		document.querySelectorAll('.policy-toc a').forEach(link => {
+			link.addEventListener('click', (e) => {
+				e.preventDefault();
+				const target = document.querySelector(link.getAttribute('href'));
+				if (target) {
+					target.scrollIntoView({ behavior: 'smooth' });
+				}
+			});
+		});
+
+		// Hamburger Menu Toggle
+		const hamburger = document.getElementById('hamburger');
+		const navLinks = document.getElementById('navLinks');
+		if (hamburger && navLinks) {
+			hamburger.addEventListener('click', () => {
+				navLinks.classList.toggle('active');
+			});
+		}
+	</script>
+</body>
+</html>

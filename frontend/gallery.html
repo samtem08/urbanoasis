@@ -1,0 +1,524 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Book your stay at Urban Oasis - secure your dates and send an inquiry.">
+	<title>Urban Oasis — Gallery</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'images/favicon.png' %}">
+	<link rel="stylesheet" href="{% static 'static/style.css' %}">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+</head>
+<body> 
+ 
+ <!-- Header Section -->
+    <header class="navbar">
+        <div class="logo">
+        	<a href="{% url 'index' %}">
+          	<img src="{% static 'images/urban_oasis.png' %}" alt="Urban Oasis Logo">Urban Oasis</a>
+        </div>
+      <nav class="nav-links" id="navLinks">
+          <a href="{% url 'index' %}" data-en="Home" data-es="Inicio" data-fr="Accueil">Home</a>
+          <a href="{% url 'amenities' %}" data-en="Amenities" data-es="Servicios"data-fr="Équipements">Amenities</a>
+          <a href="{% url 'booking' %}" data-en="Book Now" data-es="Reservar Ahora" data-fr="Réserver Maintenant">Book Now</a>
+          <a href="{% url 'location' %}" data-en="Location" data-es="Ubicación" data-fr="Emplacement">Location</a>
+      </nav>
+        <a href="{% url 'booking' %}">
+            <button class="reserve-btn" data-en="Book Now" data-es="Reservar Ahora" data-fr="Réserver Maintenant">Book Now</button>
+        </a>
+         <!-- Language Switcher -->
+            <div class="lang-switcher">
+                <button id="langEn" class="lang-btn active">EN</button>
+                <button id="langEs" class="lang-btn">ES</button>
+                <button id="langFr" class="lang-btn">FR</button>
+            </div>
+        
+
+        <!-- Hamburger Icon -->
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        
+            <!-- Overlay -->
+            <div class="menu-overlay" id="menuOverlay"></div>
+  </header>
+  <!-- Hero Section -->
+   <!-- ===== GALLERY HERO ===== -->
+<section class="gallery-hero">
+  <div class="overlay"></div>
+  <div class="gallery-hero-content">
+    <h1>Photo Gallery</h1>
+    <p class="subtitle">
+      Explore our modern apartments, amenities, and beautiful surroundings.
+    </p>
+  </div>
+</section>
+
+<!-- ===== GALLERY MAIN ===== -->
+<section class="gallery-page">
+  <div class="container">
+    
+    <!-- Gallery Section Header -->
+    <div class="gallery-section-header">
+      <h2 data-en="Explore Our Space" data-es="Explora Nuestro Espacio" data-fr="Explorez Notre Espace">Explore Our Space</h2>
+      <p data-en="Discover the elegance and comfort of Urban Oasis through our curated collection of high-quality photos." data-es="Descubre la elegancia y comodidad de Urban Oasis a través de nuestra colección de fotos de alta calidad." data-fr="Découvrez l'élégance et le confort d'Urban Oasis à travers notre collection de photos de haute qualité.">Discover the elegance and comfort of Urban Oasis through our curated collection of high-quality photos.</p>
+    </div>
+
+    <!-- Filters -->
+    <div class="gallery-filters">
+      <button class="filter-btn active" data-filter="all" data-en="All" data-es="Todos" data-fr="Tous">All</button>
+      <button class="filter-btn" data-filter="rooms" data-en="Rooms" data-es="Habitaciones" data-fr="Chambres">Rooms</button>
+      <button class="filter-btn" data-filter="amenities" data-en="Amenities" data-es="Comodidades" data-fr="Équipements">Amenities</button>
+      <button class="filter-btn" data-filter="exterior" data-en="Exterior" data-es="Exterior" data-fr="Extérieur">Exterior</button>
+      </div>
+
+    <!-- Gallery Grid -->
+    <div class="gallery-masonry" id="galleryMasonry">
+
+      <!-- Rooms -->
+      <div class="gallery-card rooms">
+        <img src="{% static 'images/LR1.jpg' %}" alt="Bedroom">
+        <div class="gallery-overlay">
+          <span>Living Room</span>
+        </div>
+      </div>
+
+      <div class="gallery-card rooms">
+        <img src="{% static 'images/LR2.jpg' %}" alt="Bedroom">
+        <div class="gallery-overlay">
+          <span>Living Room</span>
+        </div>
+      </div>
+
+      <div class="gallery-card rooms">
+        <img src="{% static 'images/LR3.jpg' %}" alt="Bedroom">
+        <div class="gallery-overlay">
+          <span>Living Room</span>
+        </div>
+      </div>
+
+      
+      <div class="gallery-card rooms">
+        <img src="{% static 'images/BEDROOM1A.jpg' %}" alt="Bedroom">
+        <div class="gallery-overlay">
+          <span>Bedroom 1</span>
+        </div>
+      </div>
+
+      <div class="gallery-card rooms">
+        <img src="{% static 'images/BEDROOM1B.jpg' %}" alt="Bedroom">
+        <div class="gallery-overlay">
+          <span>Bedroom 1</span>
+        </div>
+      </div>
+
+      
+      <div class="gallery-card rooms">
+        <img src="{% static 'images/BEDROOM1C.jpg' %}" alt="Bedroom">
+        <div class="gallery-overlay">
+          <span>Bedroom 1</span>
+        </div>
+      </div>
+
+      
+      <div class="gallery-card rooms">
+        <img src="{% static 'images/BEDROOM2A.jpg' %}" alt="Bedroom">
+        <div class="gallery-overlay">
+          <span>Bedroom 2</span>
+        </div>
+      </div>
+
+      <div class="gallery-card rooms">
+        <img src="{% static 'images/BEDROOM2B.jpg' %}" alt="Bedroom">
+        <div class="gallery-overlay">
+          <span>Bedroom 2</span>
+        </div>
+      </div>
+
+      <div class="gallery-card rooms">
+        <img src="{% static 'images/BEDROOM2C.jpg' %}" alt="Bedroom">
+        <div class="gallery-overlay">
+          <span>Bedroom 2</span>
+        </div>
+      </div>
+
+      <div class="gallery-card rooms">
+        <img src="{% static 'images/BEDROOM3.avif' %}" alt="Bedroom">
+        <div class="gallery-overlay">
+          <span>Bedroom 3</span>
+        </div>
+      </div>
+
+  
+     
+      <!-- Amenities -->
+     
+      <div class="gallery-card amenities">
+        <img src="{% static 'images/BATHROOM1.jpeg' %}" alt="Bathroom 1">
+        <div class="gallery-overlay">
+          <span>Full Bathroom 1</span>
+        </div>
+      </div>
+      <div class="gallery-card amenities">
+        <img src="{% static 'images/BATHROOM2A.jpg' %}" alt="Bathroom 2">
+        <div class="gallery-overlay">
+          <span>Full Bathroom 2</span>
+        </div>
+      </div>
+      
+      <div class="gallery-card amenities">
+        <img src="{% static 'images/UO18.jpg' %}" alt="Bathroom 3">
+        <div class="gallery-overlay">
+          <span>Full Bathroom 3</span>
+        </div>
+      </div>
+
+        <div class="gallery-card amenities">
+        <img src="{% static 'images/KITCHEN1.jpg' %}" alt="kitchen">
+        <div class="gallery-overlay">
+          <span>Full Kitchen 1</span>
+        </div>
+      </div>
+      <div class="gallery-card amenities">
+        <img src="{% static 'images/KITCHEN2.jpg' %}" alt="kitchen">
+        <div class="gallery-overlay">
+          <span>Full Kitchen 2</span>
+        </div>
+      </div>
+
+      <div class="gallery-card amenities">
+        <img src="{% static 'images/LAUNDRY1.jpg' %}" alt="Laundry">
+        <div class="gallery-overlay">
+          <span>Laundry area</span>
+        </div>
+      </div>
+      <div class="gallery-card amenities">
+        <img src="{% static 'images/LAUNDRY2.jpeg' %}" alt="washing machine">
+        <div class="gallery-overlay">
+          <span>Laundry</span>
+        </div>
+      </div>
+
+      <div class="gallery-card amenities">
+        <img src="{% static 'images/DINING1.jpg' %}" alt="dining">
+        <div class="gallery-overlay">
+          <span>Dining area</span>
+        </div>
+      </div>
+      <div class="gallery-card amenities">
+        <img src="images/DINING2.jpg" alt="dining">
+        <div class="gallery-overlay">
+          <span>Dining area</span>
+        </div>
+      </div>
+      <div class="gallery-card amenities">
+        <img src="images/DINING3.jpg" alt="dining">
+        <div class="gallery-overlay">
+          <span>Dining area</span>
+        </div>
+      </div>
+      <div class="gallery-card amenities">
+        <img src="images/DINING4.jpg" alt="dining">
+        <div class="gallery-overlay">
+          <span>Dining area</span>
+        </div>
+      </div>
+      
+      
+      
+      <!-- Exterior -->
+      <div class="gallery-card exterior">
+        <img src="images/EXTERIOR3.jpg" alt="exterior">
+        <div class="gallery-overlay">
+          <span>Side view</span>
+        </div>
+      </div>
+      <div class="gallery-card exterior">
+        <img src="images/EXTERIOR1.jpg" alt="exterior">
+        <div class="gallery-overlay">
+          <span>Front view</span>
+        </div>
+      </div>
+      <div class="gallery-card exterior">
+        <img src="images/photo11.jpg" alt="exterior">
+        <div class="gallery-overlay">
+          <span>Building</span>
+        </div>
+      </div>
+
+
+      <!-- Neighborhood -->
+      <div class="gallery-card neighborhood">
+        <img src="images/EXTERIOR2.jpg" alt="neighborhood">
+        <div class="gallery-overlay">
+          <span>Nearby Attractions</span>
+        </div>
+      </div>
+      
+
+      </div>
+
+    
+    </div>
+  </div>
+</section>
+
+<!-- Mobile Carousel Version -->
+<div class="gallery-carousel" id="galleryCarousel">
+  <div class="carousel-track" id="carouselTrack">
+    <!-- Rooms -->
+    <div class="carousel-item rooms">
+      <img src="images/LR1.jpg" alt="Living Room">
+      <div class="carousel-label">Living Room</div>
+    </div>
+    <div class="carousel-item rooms">
+      <img src="images/LR2.jpg" alt="Living Room">
+      <div class="carousel-label">Living Room</div>
+    </div>
+    <div class="carousel-item rooms">
+      <img src="images/LR3.jpg" alt="Living Room">
+      <div class="carousel-label">Living Room</div>
+    </div>
+    <div class="carousel-item rooms">
+      <img src="images/BEDROOM1A.jpg" alt="Bedroom 1">
+      <div class="carousel-label">Bedroom 1</div>
+    </div>
+    <div class="carousel-item rooms">
+      <img src="images/BEDROOM1B.jpg" alt="Bedroom 1">
+      <div class="carousel-label">Bedroom 1</div>
+    </div>
+    <div class="carousel-item rooms">
+      <img src="images/BEDROOM1C.jpg" alt="Bedroom 1">
+      <div class="carousel-label">Bedroom 1</div>
+    </div>
+    <div class="carousel-item rooms">
+      <img src="images/BEDROOM2A.jpg" alt="Bedroom 2">
+      <div class="carousel-label">Bedroom 2</div>
+    </div>
+    <div class="carousel-item rooms">
+      <img src="images/BEDROOM2B.jpg" alt="Bedroom 2">
+      <div class="carousel-label">Bedroom 2</div>
+    </div>
+    <div class="carousel-item rooms">
+      <img src="images/BEDROOM2C.jpg" alt="Bedroom 2">
+      <div class="carousel-label">Bedroom 2</div>
+    </div>
+    <div class="carousel-item rooms">
+      <img src="images/BEDROOM3.avif" alt="Bedroom 3">
+      <div class="carousel-label">Bedroom 3</div>
+    </div>
+    
+    <!-- Amenities -->
+    <div class="carousel-item amenities">
+      <img src="images/BATHROOM1.jpeg" alt="Bathroom 1">
+      <div class="carousel-label">Full Bathroom 1</div>
+    </div>
+    <div class="carousel-item amenities">
+      <img src="images/BATHROOM2A.jpg" alt="Bathroom 2">
+      <div class="carousel-label">Full Bathroom 2</div>
+    </div>
+    <div class="carousel-item amenities">
+      <img src="images/UO18.jpg" alt="Bathroom 3">
+      <div class="carousel-label">Full Bathroom 3</div>
+    </div>
+    <div class="carousel-item amenities">
+      <img src="images/KITCHEN1.jpg" alt="Kitchen">
+      <div class="carousel-label">Full Kitchen 1</div>
+    </div>
+    <div class="carousel-item amenities">
+      <img src="images/KITCHEN2.jpg" alt="Kitchen">
+      <div class="carousel-label">Full Kitchen 2</div>
+    </div>
+    <div class="carousel-item amenities">
+      <img src="images/LAUNDRY1.jpg" alt="Laundry">
+      <div class="carousel-label">Laundry area</div>
+    </div>
+    <div class="carousel-item amenities">
+      <img src="images/LAUNDRY2.jpeg" alt="Washing machine">
+      <div class="carousel-label">Laundry</div>
+    </div>
+    <div class="carousel-item amenities">
+      <img src="images/DINING1.jpg" alt="Dining">
+      <div class="carousel-label">Dining area</div>
+    </div>
+    <div class="carousel-item amenities">
+      <img src="images/DINING2.jpg" alt="Dining">
+      <div class="carousel-label">Dining area</div>
+    </div>
+    <div class="carousel-item amenities">
+      <img src="images/DINING3.jpg" alt="Dining">
+      <div class="carousel-label">Dining area</div>
+    </div>
+    <div class="carousel-item amenities">
+      <img src="images/DINING4.jpg" alt="Dining">
+      <div class="carousel-label">Dining area</div>
+    </div>
+    
+    <!-- Exterior -->
+    <div class="carousel-item exterior">
+      <img src="images/EXTERIOR3.jpg" alt="Exterior">
+      <div class="carousel-label">Side view</div>
+    </div>
+    <div class="carousel-item exterior">
+      <img src="images/EXTERIOR1.jpg" alt="Exterior">
+      <div class="carousel-label">Front view</div>
+    </div>
+    <div class="carousel-item exterior">
+      <img src="images/photo11.jpg" alt="Exterior">
+      <div class="carousel-label">Building</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== CTA ===== -->
+<section class="location-cta">
+  <div class="cta-content">
+    <h2>Like What You See?</h2>
+    <p>Book your stay today and experience Urban Oasis for yourself.</p>
+    <a href="{% url 'booking' %}">
+      <button class="reserve-btn">Book Now</button>
+    </a>
+  </div>
+</section>
+
+<!-- ===== FOOTER (reuse your existing footer) ===== -->
+    <!-- Footer -->
+<footer class="footer">
+  <div class="footer-container">
+    <!-- About Section -->
+    <div class="footer-about reveal">
+      <div class="logo"><img src="{% static 'images/urban_oasis.png' %}" alt="Urban Oasis Logo">Urban Oasis</div>
+      <h3 data-en="Urban Oasis" data-es="Urban Oasis" data-fr="Urban Oasis">Urban Oasis</h3>
+      <p data-en="Experience the perfect blend of urban convenience and tranquil comfort in the heart of Killeen, Texas." data-es="Experimenta la perfecta combinación de comodidad urbana y tranquilidad en el corazón de Killeen, Texas." data-fr="Découvrez l'harmonie parfaite entre commodité urbaine et confort tranquille au cœur de Killeen, au Texas.">Experience the perfect blend of urban convenience and tranquil comfort in the heart of Killeen, Texas.</p>
+      <div class="social-icons">
+        <!-- Facebook SVG -->
+        <a href="#" aria-label="Facebook">
+          <svg viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.99 3.66 9.12 8.44 9.88v-6.99H7.9v-2.89h2.54V9.75c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.23.19 2.23.19v2.45h-1.25c-1.23 0-1.61.77-1.61 1.56v1.87h2.74l-.44 2.89h-2.3v6.99C18.34 21.12 22 16.99 22 12z"/></svg>
+        </a>
+        
+        <!-- Twitter SVG -->
+        <a href="#" aria-label="Twitter">
+          <svg viewBox="0 0 24 24"><path d="M22.46 6c-.77.34-1.6.56-2.46.66a4.3 4.3 0 001.88-2.38 8.58 8.58 0 01-2.71 1.03 4.28 4.28 0 00-7.29 3.9 12.16 12.16 0 01-8.83-4.48 4.27 4.27 0 001.33 5.7 4.23 4.23 0 01-1.94-.54v.05a4.28 4.28 0 003.43 4.2 4.28 4.28 0 01-1.93.07 4.28 4.28 0 003.99 2.97 8.57 8.57 0 01-5.31 1.83c-.34 0-.68-.02-1.01-.06a12.1 12.1 0 006.56 1.92c7.88 0 12.2-6.53 12.2-12.2 0-.19-.01-.37-.02-.56A8.66 8.66 0 0024 4.56a8.5 8.5 0 01-2.54.7z"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="footer-links reveal">
+      <h4 data-en="Quick Links" data-es="Enlaces Rápidos" data-fr="Liens Rapides">Quick Links</h4>
+      <ul>
+        <li><a href="{% url 'index' %}">Home</a></li>
+        <li><a href="{% url 'amenities' %}" data-en="Amenities" data-es="Servicios" data-fr="Équipements">Amenities</a></li>
+        <li><a href="{% url 'gallery' %}" data-en="Gallery" data-es="Galería" data-fr="Galerie">Gallery</a></li>
+        <li><a href="{% url 'booking' %}" data-en="Book Now" data-es="Reservar Ahora" data-fr="Réserver Maintenant">Book Now</a></li>
+        <li><a href="{% url 'location' %}" data-en="Location" data-es="Ubicación" data-fr="Emplacement">Location</a></li>
+      </ul>
+    </div>
+    <!-- Contact Info -->
+    <div class="footer-contact reveal">
+      <h4 data-en="Contact" data-es="Contacto" data-fr="Contact">Contact</h4>
+      <p data-en="5110 Daybreak Dr<br>Killeen, TX 76542<br>United States" data-es="5110 Daybreak Dr<br>Killeen, TX 76542<br>Estados Unidos" data-fr="5110 Daybreak Dr<br>Killeen, TX 76542<br>États-Unis">5110 Daybreak Dr<br>Killeen, TX 76542</p>
+      <p>+1 (407) 900-6046</p>
+      <p>hello@urbanoasis.com</p>
+    </div>
+  </div>
+
+  <div class="footer-bottom reveal">
+    <p data-en="© 2026 Urban Oasis. All rights reserved." data-es="© 2026 Urban Oasis. Todos los derechos reservados." data-fr="© 2026 Urban Oasis. Tous droits réservés.">© 2026 Urban Oasis. All rights reserved.</p>
+    <div>
+      <a href="{% url 'privacy' %}" data-en="Privacy Policy" data-es="Política de Privacidad" data-fr="Politique de Confidentialité">Privacy Policy</a> | <a href="{% url 'terms' %}" data-en="Terms of Service" data-es="Términos del Servicio" data-fr="Conditions d'Utilisation">Terms of Service</a>
+    </div>
+  </div>
+</footer>
+
+<!-- Gallery API Integration Script -->
+<script src="{% static 'static/gallery-api.js' %}"></script>
+
+<!-- Gallery Filter Script -->
+<script>
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const galleryCards = document.querySelectorAll('.gallery-card');
+  const carouselItems = document.querySelectorAll('.carousel-item');
+  const carouselTrack = document.getElementById('carouselTrack');
+  const galleryCarousel = document.getElementById('galleryCarousel');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const filter = btn.getAttribute('data-filter');
+
+      // Filter desktop gallery
+      galleryCards.forEach(card => {
+        if (filter === 'all' || card.classList.contains(filter)) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      // Filter mobile carousel
+      carouselItems.forEach(item => {
+        if (filter === 'all' || item.classList.contains(filter)) {
+          item.style.display = 'flex';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    });
+  });
+
+  // Carousel Arrow Scroll Functionality
+  if (galleryCarousel && carouselTrack) {
+    const scrollAmount = 320; // Scroll distance per click
+
+    // Left Arrow Click
+    galleryCarousel.addEventListener('click', (e) => {
+      if (e.target === galleryCarousel && e.offsetX < 50) {
+        carouselTrack.scrollBy({
+          left: -scrollAmount,
+          behavior: 'smooth'
+        });
+      }
+    });
+
+    // Right Arrow Click
+    galleryCarousel.addEventListener('click', (e) => {
+      if (e.target === galleryCarousel && e.offsetX > galleryCarousel.offsetWidth - 50) {
+        carouselTrack.scrollBy({
+          left: scrollAmount,
+          behavior: 'smooth'
+        });
+      }
+    });
+
+    // Keyboard arrow key support
+    document.addEventListener('keydown', (e) => {
+      const carouselRect = galleryCarousel.getBoundingClientRect();
+      const isCarouselInView = carouselRect.top < window.innerHeight && carouselRect.bottom > 0;
+
+      if (isCarouselInView) {
+        if (e.key === 'ArrowLeft') {
+          e.preventDefault();
+          carouselTrack.scrollBy({
+            left: -scrollAmount,
+            behavior: 'smooth'
+          });
+        } else if (e.key === 'ArrowRight') {
+          e.preventDefault();
+          carouselTrack.scrollBy({
+            left: scrollAmount,
+            behavior: 'smooth'
+          });
+        }
+      }
+    });
+  }
+</script>
+<script src="{% static 'script.js' %}"></script>
+</body>
+</html> 

@@ -1,0 +1,174 @@
+[
+  {
+    "model": "rentals.sitesettings",
+    "pk": 1,
+    "fields": {
+      "site_name": "Urban Oasis",
+      "tagline": "Your home away from home in Killeen",
+      "address": "5110 Daybreak Dr, Killeen, TX 76542",
+      "phone": "+1 (407) 900-6046",
+      "email": "hello@urbanoasis.com",
+      "check_in_time": "15:00:00",
+      "check_out_time": "11:00:00",
+      "facebook_url": "",
+      "twitter_url": "",
+      "instagram_url": "",
+      "max_guests": 6,
+      "num_bedrooms": 3,
+      "num_bathrooms": 2,
+      "square_feet": 1172
+    }
+  },
+  {
+    "model": "rentals.pricingrule",
+    "pk": 1,
+    "fields": {
+      "name": "Regular Season",
+      "season": "regular",
+      "base_price_per_night": "125.00",
+      "weekly_discount_percent": "10.00",
+      "monthly_discount_percent": "20.00",
+      "cleaning_fee": "75.00",
+      "service_fee_percent": "5.00",
+      "start_date": null,
+      "end_date": null,
+      "is_active": true
+    }
+  },
+  {
+    "model": "rentals.pricingrule",
+    "pk": 2,
+    "fields": {
+      "name": "Peak Season (Summer)",
+      "season": "peak",
+      "base_price_per_night": "150.00",
+      "weekly_discount_percent": "8.00",
+      "monthly_discount_percent": "15.00",
+      "cleaning_fee": "75.00",
+      "service_fee_percent": "5.00",
+      "start_date": "2026-06-01",
+      "end_date": "2026-08-31",
+      "is_active": true
+    }
+  },
+  {
+    "model": "rentals.amenity",
+    "pk": 1,
+    "fields": {
+      "name": "Free WiFi",
+      "amenity_type": "popular",
+      "description": "High-speed internet throughout the property",
+      "icon_name": "fa-wifi",
+      "order": 1,
+      "is_active": true
+    }
+  },
+  {
+    "model": "rentals.amenity",
+    "pk": 2,
+    "fields": {
+      "name": "Free Parking",
+      "amenity_type": "popular",
+      "description": "Private parking space included",
+      "icon_name": "fa-car",
+      "order": 2,
+      "is_active": true
+    }
+  },
+  {
+    "model": "rentals.amenity",
+    "pk": 3,
+    "fields": {
+      "name": "Air Conditioning",
+      "amenity_type": "popular",
+      "description": "Central AC throughout",
+      "icon_name": "fa-snowflake",
+      "order": 3,
+      "is_active": true
+    }
+  },
+  {
+    "model": "rentals.amenity",
+    "pk": 4,
+    "fields": {
+      "name": "Full Kitchen",
+      "amenity_type": "apartment",
+      "description": "Fully equipped kitchen with appliances",
+      "icon_name": "fa-kitchen-set",
+      "order": 4,
+      "is_active": true
+    }
+  },
+  {
+    "model": "rentals.amenity",
+    "pk": 5,
+    "fields": {
+      "name": "Washer & Dryer",
+      "amenity_type": "facility",
+      "description": "On-site laundry facilities",
+      "icon_name": "fa-washing-machine",
+      "order": 5,
+      "is_active": true
+    }
+  },
+  {
+    "model": "rentals.amenity",
+    "pk": 6,
+    "fields": {
+      "name": "Flat-screen TV",
+      "amenity_type": "inroom",
+      "description": "Smart TV with streaming capabilities",
+      "icon_name": "fa-tv",
+      "order": 6,
+      "is_active": true
+    }
+  },
+  {
+    "model": "rentals.review",
+    "pk": 1,
+    "fields": {
+      "guest_name": "Kellyann",
+      "rating": 4,
+      "comment": "The host was very communicative, friendly and very helpful. We also received a non alcoholic beverage, which was very appreciative because most people don't do that. Thank you for a wonderful stay!",
+      "booking": null,
+      "is_approved": true,
+      "is_featured": true
+    }
+  },
+  {
+    "model": "rentals.review",
+    "pk": 2,
+    "fields": {
+      "guest_name": "Kerly",
+      "rating": 5,
+      "comment": "Everything! This place was amazing! Just as advertised. The host was very accommodating and helpful. We were so impressed by all the thoughtful touches throughout. Highly recommend!",
+      "booking": null,
+      "is_approved": true,
+      "is_featured": true
+    }
+  },
+  {
+    "model": "rentals.review",
+    "pk": 3,
+    "fields": {
+      "guest_name": "Anna S.",
+      "rating": 4,
+      "comment": "Nice, quiet stay. A bit small for four adults but perfect for families with kids. Would return.",
+      "booking": null,
+      "is_approved": true,
+      "is_featured": false
+    }
+  },
+  {
+    "model": "rentals.review",
+    "pk": 4,
+    "fields": {
+      "guest_name": "Eunji",
+      "rating": 5,
+      "comment": "Very cozy house, pretty quiet and safe neighborhood. Beds were all comfortable and bedding and towels smelled very good. Host prepared some food and water in the fridge, it was so nice of him. Paid almost $500 for 4 nights (5 days) it was totally worth it. I'd rather stay here again whenever I visit Killeen again. I'd rate 100/10! Me and my fiance really enjoyed the time we spent in this house.",
+      "booking": null,
+      "is_approved": true,
+      "is_featured": true
+    }
+  }
+]

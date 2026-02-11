@@ -1,0 +1,404 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Amenities at Urban Oasis - comfortable apartments with great features.">
+	<title>Urban Oasis — Location</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'images/favicon.png' %}">
+	<link rel="stylesheet" href="{% static 'static/style.css' %}">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+	<header class="navbar">
+		<div class="logo">
+        	<a href="{% url 'index' %}">
+          	<img src="{% static 'images/urban_oasis.png' %}" alt="Urban Oasis Logo">Urban Oasis</a>
+      	</div>
+		<nav class="nav-links" id="navLinks">
+			<a href="{% url 'index' %}">Home</a>
+			<a href="{% url 'amenities' %}">Amenities</a>
+            <a href="{% url 'gallery' %}">Gallery</a>
+			<a href="{% url 'booking' %}">Book Now</a>
+			
+		</nav>
+		<a href="{% url 'booking' %}"><button class="reserve-btn">Book Now</button></a>
+		<div class="lang-switcher">
+			<button id="langEn" class="lang-btn active">EN</button>
+			<button id="langEs" class="lang-btn">ES</button>
+			<button id="langFr" class="lang-btn">FR</button>
+		</div>
+		<div class="hamburger" id="hamburger">
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+		<div class="menu-overlay" id="menuOverlay"></div>
+	</header>
+
+    <!-- Page Hero Section -->
+    <section class="location-hero">
+        <div class="overlay"></div>
+        <div class="hero-content">
+            <h1>Our Location</h1>
+            <p class="subtitle">
+                Perfectly positioned in the heart of Killeen, Texas – your ideal destination for business and leisure travel.
+            </p>
+        </div>
+    </section>
+
+    <!-- Main Location Section -->
+    <section class="location-main">
+        <div class="location-container">
+            <!-- Map Section -->
+            <div class="location-map-section">
+                <div class="map-container">
+                    <iframe
+                        src="https://www.google.com/maps?q=5110%20Daybreak%20Dr,%20Killeen,%20TX&output=embed"
+                        loading="lazy"
+                        title="Urban Oasis Location Map">
+                    </iframe>
+                </div>
+            </div>
+
+            <!-- Info Section -->
+            <div class="location-info-section">
+                <h2>Contact Information</h2>
+
+                <!-- Address -->
+                <div class="info-block">
+                    <div class="info-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="info-content">
+                        <h3>Address</h3>
+                        <p>
+                            5110 Daybreak Dr<br>
+                            Killeen, TX 76542<br>
+                            United States
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Phone -->
+                <div class="info-block">
+                    <div class="info-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div class="info-content">
+                        <h3>Phone</h3>
+                        <p><a href="tel:+14079006046">+1 (407) 900-6046</a></p>
+                    </div>
+                </div>
+
+                <!-- Email -->
+                <div class="info-block">
+                    <div class="info-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="info-content">
+                        <h3>Email</h3>
+                        <p><a href="mailto:info@urbanoasisapartment.com">info@urbanoasisapartment.com</a></p>
+                    </div>
+                </div>
+
+                <!-- Hours -->
+                <div class="info-block">
+                    <div class="info-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="info-content">
+                        <h3>Guest Services Hours</h3>
+                        <p>
+                            Front Desk: 24/7<br>
+                            Check-in: 3:00 PM<br>
+                            Check-out: 11:00 AM
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nearby Attractions -->
+    <section class="nearby-attractions">
+        <div class="attractions-header">
+            <p class="section-tag">DISCOVER</p>
+            <h2>Nearby Attractions & Landmarks</h2>
+            <p class="section-subtitle">
+                Urban Oasis is conveniently located near some of Killeen's most popular destinations and attractions.
+            </p>
+        </div>
+
+        <div class="attractions-grid">
+
+            <!-- Fort Cavazos -->
+            <div class="attraction-card">
+                <div class="attraction-icon">
+                    <i class="fas fa-fort"></i>
+                </div>
+                <h3>Fort Cavazos</h3>
+                <p class="distance">2.5 miles away</p>
+                <p>Home to one of the Army's premier installations and a major employer in the region. Perfect for military families and business travelers.</p>
+                <a href="#" class="learn-more">Learn More →</a>
+            </div>
+
+            <!-- Killeen Downtown -->
+            <div class="attraction-card">
+                <div class="attraction-icon">
+                    <i class="fas fa-building"></i>
+                </div>
+                <h3>Downtown Killeen</h3>
+                <p class="distance">1 mile away</p>
+                <p>Vibrant downtown area with shops, restaurants, galleries, and entertainment venues. Great for dining and shopping experiences.</p>
+                <a href="#" class="learn-more">Learn More →</a>
+            </div>
+
+            <!-- Killeen Civic Center -->
+            <div class="attraction-card">
+                <div class="attraction-icon">
+                    <i class="fas fa-theater-masks"></i>
+                </div>
+                <h3>Killeen Civic Center</h3>
+                <p class="distance">1.5 miles away</p>
+                <p>Premier venue for concerts, theater productions, conferences, and community events throughout the year.</p>
+                <a href="#" class="learn-more">Learn More →</a>
+            </div>
+
+            <!-- Miller Park -->
+            <div class="attraction-card">
+                <div class="attraction-icon">
+                    <i class="fas fa-tree"></i>
+                </div>
+                <h3>Miller Park</h3>
+                <p class="distance">3 miles away</p>
+                <p>Beautiful public park with hiking trails, picnic areas, and scenic views. Perfect for outdoor enthusiasts and families.</p>
+                <a href="#" class="learn-more">Learn More →</a>
+            </div>
+
+            <!-- Killeen Museum -->
+            <div class="attraction-card">
+                <div class="attraction-icon">
+                    <i class="fas fa-landmark"></i>
+                </div>
+                <h3>Killeen Museum</h3>
+                <p class="distance">2 miles away</p>
+                <p>Explore local history and culture through exhibits and collections showcasing the heritage of Killeen and Central Texas.</p>
+                <a href="#" class="learn-more">Learn More →</a>
+            </div>
+
+            <!-- Dining & Shopping -->
+            <div class="attraction-card">
+                <div class="attraction-icon">
+                    <i class="fas fa-utensils"></i>
+                </div>
+                <h3>Dining & Shopping</h3>
+                <p class="distance">Walking distance</p>
+                <p>Numerous restaurants, cafés, and retail shops within walking distance of Urban Oasis. Every cuisine and need covered.</p>
+                <a href="#" class="learn-more">Learn More →</a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Directions Section -->
+    <section class="directions-section">
+        <div class="directions-content">
+            <h2>Getting Here</h2>
+            <p class="section-subtitle">
+                Multiple convenient ways to reach Urban Oasis from anywhere in Killeen or beyond.
+            </p>
+
+            <div class="directions-grid">
+                <!-- By Car -->
+                <div class="direction-card">
+                    <div class="direction-icon">
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <h3>By Car</h3>
+                    <p><strong>From Fort Cavazos:</strong><br>Take US-190 West to North College Street. Urban Oasis is located on North College Street. Approximately 10 minutes from Fort Cavazos gates.</p>
+                    <p><strong>From Downtown:</strong><br>Head north on College Street for approximately 1 mile. We're on the right side of the street with ample parking available.</p>
+                </div>
+
+                <!-- By Taxi/Ride Share -->
+                <div class="direction-card">
+                    <div class="direction-icon">
+                        <i class="fas fa-taxi"></i>
+                    </div>
+                    <h3>By Taxi/Ride Share</h3>
+                    <p>Uber and Lyft are available throughout Killeen. Use our address in your ride-share app for direct navigation to Urban Oasis. Typically $5-15 from downtown or Fort Cavazos.</p>
+                </div>
+
+                <!-- By Public Transit -->
+                <div class="direction-card">
+                    <div class="direction-icon">
+                        <i class="fas fa-bus"></i>
+                    </div>
+                    <h3>By Public Transit</h3>
+                    <p>Local bus services are available throughout Killeen. Check with Killeen Transit for routes and schedules to North College Street. Several routes serve our area.</p>
+                </div>
+
+                <!-- Walking -->
+                <div class="direction-card">
+                    <div class="direction-icon">
+                        <i class="fas fa-walking"></i>
+                    </div>
+                    <h3>Walking</h3>
+                    <p>Urban Oasis is located in a walkable area of Killeen. Many downtown shops and restaurants are within 1-2 blocks. Safe, well-lit streets for pedestrians.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Parking Information -->
+    <section class="parking-info">
+        <h2>Parking Information</h2>
+
+        <div class="parking-grid">
+            <div class="parking-card">
+                <i class="fas fa-square-parking"></i>
+                <h3>Free Parking</h3>
+                <p>Complimentary parking for all guests throughout their stay</p>
+            </div>
+
+            <div class="parking-card">
+                <i class="fas fa-shield"></i>
+                <h3>Secure & Covered</h3>
+                <p>Weather-protected parking areas with 24/7 security monitoring</p>
+            </div>
+
+            <div class="parking-card">
+                <i class="fas fa-lightbulb"></i>
+                <h3>Well-Lit Areas</h3>
+                <p>Bright, well-maintained parking facilities for guest safety</p>
+            </div>
+
+            <div class="parking-card">
+                <i class="fas fa-wheelchair"></i>
+                <h3>Accessible Spots</h3>
+                <p>Reserved ADA-compliant parking spaces available</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Area Overview -->
+    <section class="area-overview">
+        <h2>About Killeen & the Area</h2>
+
+        <div class="overview-content">
+            <div class="overview-text">
+                <h3>Welcome to Killeen, Texas</h3>
+                <p>
+                    Killeen is a vibrant city in Central Texas with a rich military heritage and a diverse, welcoming community. 
+                    Home to Fort Cavazos, one of the largest military installations in the United States, Killeen has become an 
+                    important business and leisure destination.
+                </p>
+
+                <h4>Why Choose Killeen?</h4>
+                <ul class="overview-list">
+                    <li><strong>Strategic Location:</strong> Central hub for business and military personnel with easy access to Dallas, Austin, and Waco</li>
+                    <li><strong>Diverse Dining:</strong> Authentic international cuisine alongside popular American restaurants and cafés</li>
+                    <li><strong>Entertainment:</strong> Year-round events, concerts, theater productions, and cultural activities</li>
+                    <li><strong>Outdoor Recreation:</strong> Parks, trails, and recreational facilities for outdoor enthusiasts</li>
+                    <li><strong>Shopping:</strong> Multiple shopping centers and retail districts with major and local brands</li>
+                    <li><strong>Community:</strong> Welcoming neighborhoods with excellent hospitality and services</li>
+                </ul>
+
+                <h4>Perfect For:</h4>
+                <div class="perfect-for-grid">
+                    <div class="perfect-item">
+                        <i class="fas fa-user-tie"></i>
+                        <span>Business Travelers</span>
+                    </div>
+                    <div class="perfect-item">
+                        <i class="fas fa-military"></i>
+                        <span>Military Personnel</span>
+                    </div>
+                    <div class="perfect-item">
+                        <i class="fas fa-users"></i>
+                        <span>Family Vacations</span>
+                    </div>
+                    <div class="perfect-item">
+                        <i class="fas fa-heart"></i>
+                        <span>Couples Getaways</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="overview-stats">
+                <div class="stat-box">
+                    <h3>152,000+</h3>
+                    <p>Population</p>
+                </div>
+
+                <div class="stat-box">
+                    <h3>Year-Round</h3>
+                    <p>Mild Climate</p>
+                </div>
+
+                <div class="stat-box">
+                    <h3>500+</h3>
+                    <p>Restaurants & Cafés</p>
+                </div>
+
+                <div class="stat-box">
+                    <h3>24/7</h3>
+                    <p>Business Activity</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="location-cta">
+        <div class="cta-content">
+            <h2>Ready to Visit Urban Oasis?</h2>
+            <p>Make your reservation today and experience the perfect stay in Killeen</p>
+            <button class="reserve-btn" onclick="document.querySelector('.reserve-btn').click()">Book Your Room Now</button>
+        </div>
+    </section>
+
+   <!-- Footer (same as main site) -->
+	<footer class="footer">
+		<div class="footer-container">
+			<div class="footer-about reveal">
+				<h3>Urban Oasis</h3>
+				<p>Experience the perfect blend of urban convenience and tranquil comfort in the heart of Killeen, Texas.</p>
+				<div class="social-icons">
+					<a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.99 3.66 9.12 8.44 9.88v-6.99H7.9v-2.89h2.54V9.75c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.23.19 2.23.19v2.45h-1.25c-1.23 0-1.61.77-1.61 1.56v1.87h2.74l-.44 2.89h-2.3v6.99C18.34 21.12 22 16.99 22 12z"/></svg></a>
+					<a href="#" aria-label="Twitter"><svg viewBox="0 0 24 24"><path d="M22.46 6c-.77.34-1.6.56-2.46.66a4.3 4.3 0 001.88-2.38 8.58 8.58 0 01-2.71 1.03 4.28 4.28 0 00-7.29 3.9 12.16 12.16 0 01-8.83-4.48 4.27 4.27 0 001.33 5.7 4.23 4.23 0 01-1.94-.54v.05a4.28 4.28 0 003.43 4.2 4.28 4.28 0 01-1.93.07 4.28 4.28 0 003.99 2.97 8.57 8.57 0 01-5.31 1.83c-.34 0-.68-.02-1.01-.06a12.1 12.1 0 006.56 1.92c7.88 0 12.2-6.53 12.2-12.2 0-.19-.01-.37-.02-.56A8.66 8.66 0 0024 4.56a8.5 8.5 0 01-2.54.7z"/></svg></a>
+				</div>
+			</div>
+
+			<div class="footer-links reveal">
+				<h4>Quick Links</h4>
+				<ul>
+					<li><a href="{% url 'index' %}">Home</a></li>
+				    <li><a href="{% url 'amenities' %}">Amenities</a></li>
+					<li><a href="{% url 'gallery' %}">Gallery</a></li>
+					<li><a href="{% url 'booking' %}">Book Now</a></li>
+					</ul>
+			</div>
+
+			<div class="footer-contact reveal">
+				<h4>Contact</h4>
+				<p>5110 Daybreak Dr<br>Killeen, TX 76542</p>
+				<p>+1 (407) 900-6046</p>
+				<p>hello@urbanoasisapartment.com</p>
+			</div>
+		</div>
+
+		<div class="footer-bottom reveal">
+			<p data-en="© 2026 Urban Oasis. All rights reserved." data-es="© 2026 Urban Oasis. Todos los derechos reservados." data-fr="© 2026 Urban Oasis. Tous droits réservés.">© 2026 Urban Oasis. All rights reserved.</p>
+			<div>
+				<a href="{% url 'privacy' %}" data-en="Privacy Policy" data-es="Política de Privacidad" data-fr="Politique de Confidentialité">Privacy Policy</a> | <a href="{% url 'terms' %}" data-en="Terms of Service" data-es="Términos del Servicio" data-fr="Conditions d'Utilisation">Terms of Service</a>
+			</div>
+		</div>
+	</footer>
+
+	<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+	<script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>
+

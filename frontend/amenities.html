@@ -1,0 +1,292 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Amenities at Urban Oasis - comfortable apartments with great features.">
+	<title>Urban Oasis — Amenities</title>
+	<link rel="icon" type="image/x-icon" href="{% static 'images/favicon.png' %}">
+	<link rel="stylesheet" href="{% static 'static/style.css' %}">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+	<header class="navbar">
+		<div class="logo">
+        	<a href="{% url 'index' %}">
+          	<img src="{% static 'images/urban_oasis.png' %}" alt="Urban Oasis Logo">Urban Oasis</a>
+      	</div>
+		<nav class="nav-links" id="navLinks">
+			<a href="{% url 'index' %}">Home</a>
+			<a href="{% url 'gallery' %}">Gallery</a>
+			<a href="{% url 'booking' %}">Book Now</a>
+			<a href="{% url 'location' %}">Location</a>
+		</nav>
+		<a href="{% url 'booking' %}"><button class="reserve-btn">Book Now</button></a>
+		<div class="lang-switcher">
+			<button id="langEn" class="lang-btn active">EN</button>
+			<button id="langEs" class="lang-btn">ES</button>
+			<button id="langFr" class="lang-btn">FR</button>
+		</div>
+		<div class="hamburger" id="hamburger">
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+		<div class="menu-overlay" id="menuOverlay"></div>
+	</header>
+
+	<section class="hero" style="background-image: url({% static 'images/photo7.jpg' %});">
+		<div class="overlay"></div>
+		<div class="hero-content">
+			<p class="welcome">EXPLORE AMENITIES</p>
+			<h1>Amenities & Features</h1>
+			<p class="subtitle">Thoughtfully curated services and apartment features for a comfortable stay.</p>
+			<a href="{% url 'booking' %}" class="btn">Reserve Now</a>
+		</div>
+	</section>
+
+	<!-- Amenities -->
+	<section class="amenities">
+		<div class="container">
+			<h2>Premium Amenities</h2>
+			<p class="subtitle">Everything you need for a comfortable and convenient stay. We've thought of every detail so you don't have to.</p>
+
+			<div class="amenities-grid" id="amenities-grid">
+
+				<div class="amenity-column">
+					<h3>Most Popular</h3>
+
+					<div class="amenity-item">
+						<span class="icon">
+							<svg viewBox="0 0 24 24" fill="none"><path d="M3 13l2-5h14l2 5" /><circle cx="7.5" cy="17.5" r="1.5"/><circle cx="16.5" cy="17.5" r="1.5"/><path d="M5 13h14"/></svg>
+						</span>
+						<span>Free Private Parking</span>
+					</div>
+
+					<div class="amenity-item">
+						<span class="icon">
+							<svg viewBox="0 0 24 24" fill="none"><path d="M5 12a10 10 0 0 1 14 0"/><path d="M8.5 15.5a5 5 0 0 1 7 0"/><circle cx="12" cy="19" r="1"/></svg>
+						</span>
+						<span>Free WiFi Everywhere</span>
+					</div>
+
+					<div class="amenity-item">
+						<span class="icon">
+							<svg viewBox="0 0 24 24" fill="none"><path d="M12 2v20M2 12h20"/><path d="M4.5 4.5l15 15M19.5 4.5l-15 15"/></svg>
+						</span>
+						<span>Air Conditioning</span>
+					</div>
+				</div>
+
+				<div class="amenity-column">
+					<h3>Apartment Features</h3>
+
+					<div class="amenity-item">
+						<span class="icon">
+							<svg viewBox="0 0 24 24" fill="none"><path d="M3 10v8M21 10v8"/><rect x="3" y="6" width="18" height="4" rx="2"/></svg>
+						</span>
+						<span>3 Bedrooms (1172 ft²)</span>
+					</div>
+
+					<div class="amenity-item">
+						<span class="icon">
+							<svg viewBox="0 0 24 24" fill="none"><path d="M4 3v7M8 3v7M6 3v18"/><path d="M14 3v18M14 12h4"/></svg>
+						</span>
+						<span>Full Kitchen & Kitchenette</span>
+					</div>
+
+					<div class="amenity-item">
+						<span class="icon">
+							<svg viewBox="0 0 24 24" fill="none"><path d="M3 10h18"/><path d="M5 10v6a4 4 0 0 0 4 4h6a4 4 0 0 0 4-4v-6"/></svg>
+						</span>
+						<span>Private Bathroom</span>
+					</div>
+
+				</div>
+
+				<div class="amenity-column">
+					<h3>Services & Safety</h3>
+
+					<div class="amenity-item">
+						<span class="icon">
+							<svg viewBox="0 0 24 24" fill="none"><path d="M12 3l7 4v5c0 5-3.5 8-7 9-3.5-1-7-4-7-9V7l7-4z"/></svg>
+						</span>
+						<span>Safety & Security</span>
+					</div>
+
+					<div class="amenity-item">
+						<span class="icon">
+							<svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="5" r="2"/><path d="M4 9h16M12 9v11"/></svg>
+						</span>
+						<span>Accessibility Features</span>
+					</div>
+
+					<div class="amenity-item">
+						<span class="icon">
+							<svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 4 3 14 0 18"/></svg>
+						</span>
+						<span>Multi-language Staff</span>
+					</div>
+
+				</div>
+
+			</div>
+
+			<!-- Expanded facilities + in-room amenities + reviews -->
+			<div class="amenities-extra">
+				<div class="facilities-grid">
+					<div class="facilities-card">
+						<h3>Facilities</h3>
+						<p class="muted">On-site services and building conveniences available to guests.</p>
+						<ul class="facilities-list">
+							<li><strong>24/7 Front Desk:</strong> Staff available round-the-clock for assistance.</li>
+							<li><strong>Secure Access:</strong> Gated entry and security cameras for peace of mind.</li>
+							<li><strong>Laundry:</strong> On-site coin or card-operated washers & dryers.</li>
+							<li><strong>Parking:</strong> Free private parking for guests.</li>
+							<li><strong>Bike Storage:</strong> Secure bike parking for active guests.</li>
+						</ul>
+					</div>
+
+					<div class="in-room-amenities">
+						<h3>In-room Amenities</h3>
+						<ul class="inroom-list">
+							<li>High-speed WiFi & work desk</li>
+							<li>Air conditioning & heating</li>
+							<li>Flat-screen TV with streaming</li>
+							<li>Full kitchen (stove, fridge, microwave)</li>
+							<li>Fresh linens & towels</li>
+							<li>In-room safe</li>
+							<li>Iron & ironing board</li>
+							<li>Complimentary toiletries</li>
+						</ul>
+					</div>
+				</div>
+
+				<!-- Reviews -->
+				<div class="reviews-section">
+					<h2>Guest Reviews</h2>
+					<p class="subtitle">Real feedback from guests who stayed at Urban Oasis.</p>
+					<div class="reviews-grid">
+						<div class="review-card">
+							<div class="review-header"><strong>Kellyann</strong><span class="stars" aria-hidden="true">★★★★☆</span></div>
+							<p>The host was very communicative, friendly and very helpful. We also received a non alcoholic beverage, which was very appreciative because most people don’t do that. Thank you for a wonderful stay ☺️</p>
+						</div>
+						<div class="review-card">
+							<div class="review-header"><strong>Kerly</strong><span class="stars" aria-hidden="true">★★★★★</span></div>
+							<p>Everything! This place was amazing! Just as advertised. The host was very accommodating and helpful. We were so impressed by all the thoughtful touches throughout. Highly recommend!</p>
+						</div>
+						<div class="review-card">
+							<div class="review-header"><strong>Anna S.</strong><span class="stars" aria-hidden="true">★★★★☆</span></div>
+							<p>Nice, quiet stay. A bit small for four adults but perfect for families with kids. Would return.</p>
+						</div>
+						<div class="review-card">
+							<div class="review-header"><strong>Eunji</strong><span class="stars" aria-hidden="true">★★★★☆</span></div>
+							<p>Very cozy house, pretty quite and safe neighborhood. Beds were all comfortable and bedding and towels smelled very good. Host prepared some food and water in the fridge, it was so nice of him. Paid almost $500 for 4 nights (5days) it was totally worth it. I'd rather stay here again whenever I visit Killeen again. I'd rate 100/10!
+Me and my fiance really enjoyed the time we spent in this house.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Gallery -->
+	<section class="glimpse" id="gallery">
+		<div class="container">
+			<h2>Gallery</h2>
+			<p class="subtitle">See the spaces and finishes — click any image to open full-size.</p>
+
+			<div class="gallery-grid">
+				<div class="gallery-item"><a href="{% static 'images/LR2.jpg' %}" target="_blank" rel="noopener"><img src="{% static 'images/LR2.jpg' %}" alt="Living area"></a></div>
+				<div class="gallery-item"><a href="{% static 'images/KITCHEN1.jpg' %}" target="_blank" rel="noopener"><img src="{% static 'images/KITCHEN1.jpg' %}" alt="Kitchen"></a></div>
+				<div class="gallery-item"><a href="{% static 'images/BEDROOM1A.jpg' %}" target="_blank" rel="noopener"><img src="{% static 'images/BEDROOM1A.jpg' %}" alt="Bedroom"></a></div>
+				<div class="gallery-item"><a href="{% static 'images/DINING2.jpg' %}" target="_blank" rel="noopener"><img src="{% static 'images/DINING2.jpg' %}" alt="Dining area"></a></div>
+				<div class="gallery-item"><a href="{% static 'images/BATHROOM1.jpg' %}" target="_blank" rel="noopener"><img src="{% static 'images/BATHROOM1.jpeg' %}" alt="Bathroom"></a></div>
+				<div class="gallery-item"><a href="{% static 'images/EXTERIOR1.jpg' %}" target="_blank" rel="noopener"><img src="{% static 'images/EXTERIOR1.jpg' %}" alt="Exterior view"></a></div>
+			</div>
+		</div>
+	</section>
+
+	<!-- FAQ -->
+	<section class="about" id="faq">
+		<div class="container">
+			<h2>Frequently Asked Questions</h2>
+			<p class="subtitle">Answers to common questions about stays and policies.</p>
+			<div class="faq-list">
+				<details>
+					<summary>What time is check-in and check-out?</summary>
+					<p>Check-in is at 3:00 PM and check-out is at 11:00 AM. Early check-in/late check-out may be available on request.</p>
+				</details>
+				<details>
+					<summary>Is parking available?</summary>
+					<p>Yes — free private parking is provided on site for guests.</p>
+				</details>
+				<details>
+					<summary>Are pets allowed?</summary>
+					<p>Small pets may be allowed with prior approval and an additional fee. Please contact us before booking.</p>
+				</details>
+				<details>
+					<summary>How can I contact you in an emergency?</summary>
+					<p>Call +1 (407) 900-6046 for urgent issues. For non-urgent matters, email hello@urbanoasis.com.</p>
+				</details>
+			</div>
+		</div>
+	</section>
+
+	<!-- Policies -->
+	<section class="about" id="policies">
+		<div class="container">
+			<h2>Policies</h2>
+			<ul class="features-list">
+				<li><strong>Cancellation:</strong> Free cancellation up to 48 hours before check-in...<a href="{% url 'terms' %}">read more</a></li>
+				<li><strong>Smoking:</strong> All units are non-smoking. A cleaning fee applies for violations.</li>
+				<li><strong>Accessibility:</strong> Select units include accessibility features; contact us for details.</li>
+				<li><strong>Occupancy:</strong> Maximum occupancy follows local regulations and listed room capacity.</li>
+			</ul>
+		</div>
+	</section>
+
+	<!-- Footer (same as main site) -->
+	<footer class="footer">
+		<div class="footer-container">
+			<div class="footer-about reveal">
+				<h3>Urban Oasis</h3>
+				<p>Experience the perfect blend of urban convenience and tranquil comfort in the heart of Killeen, Texas.</p>
+				<div class="social-icons">
+					<a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.99 3.66 9.12 8.44 9.88v-6.99H7.9v-2.89h2.54V9.75c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.23.19 2.23.19v2.45h-1.25c-1.23 0-1.61.77-1.61 1.56v1.87h2.74l-.44 2.89h-2.3v6.99C18.34 21.12 22 16.99 22 12z"/></svg></a>
+					<a href="#" aria-label="Twitter"><svg viewBox="0 0 24 24"><path d="M22.46 6c-.77.34-1.6.56-2.46.66a4.3 4.3 0 001.88-2.38 8.58 8.58 0 01-2.71 1.03 4.28 4.28 0 00-7.29 3.9 12.16 12.16 0 01-8.83-4.48 4.27 4.27 0 001.33 5.7 4.23 4.23 0 01-1.94-.54v.05a4.28 4.28 0 003.43 4.2 4.28 4.28 0 01-1.93.07 4.28 4.28 0 003.99 2.97 8.57 8.57 0 01-5.31 1.83c-.34 0-.68-.02-1.01-.06a12.1 12.1 0 006.56 1.92c7.88 0 12.2-6.53 12.2-12.2 0-.19-.01-.37-.02-.56A8.66 8.66 0 0024 4.56a8.5 8.5 0 01-2.54.7z"/></svg></a>
+				</div>
+			</div>
+
+			<div class="footer-links reveal">
+				<h4>Quick Links</h4>
+				<ul>
+					<li><a href="{% url 'index' %}">Home</a></li>
+					<li><a href="{% url 'gallery' %}">Gallery</a></li>
+					<li><a href="{% url 'booking' %}">Book Now</a></li>
+					<li><a href="{% url 'location' %}">Location</a></li>
+				</ul>
+			</div>
+
+			<div class="footer-contact reveal">
+				<h4>Contact</h4>
+				<p>5110 Daybreak Dr<br>Killeen, TX 76542</p>
+				<p>+1 (407) 900-6046</p>
+				<p>hello@urbanoasis.com</p>
+			</div>
+		</div>
+
+		<div class="footer-bottom reveal">
+			<p data-en="© 2026 Urban Oasis. All rights reserved." data-es="© 2026 Urban Oasis. Todos los derechos reservados." data-fr="© 2026 Urban Oasis. Tous droits réservés.">© 2026 Urban Oasis. All rights reserved.</p>
+			<div>
+				<a href="privacy.html" data-en="Privacy Policy" data-es="Política de Privacidad" data-fr="Politique de Confidentialité">Privacy Policy</a> | <a href="terms.html" data-en="Terms of Service" data-es="Términos del Servicio" data-fr="Conditions d'Utilisation">Terms of Service</a>
+			</div>
+		</div>
+	</footer>
+
+	<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+	<script src="{% static 'script.js' %}"></script>
+</body>
+</html>
+

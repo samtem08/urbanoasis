@@ -1,0 +1,919 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Checkout — Urban Oasis</title>
+    <link rel="stylesheet" href="{% static 'static/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .checkout-container {
+            display: grid;
+            grid-template-columns: 1fr 350px;
+            gap: 40px;
+            padding: 40px 0;
+        }
+        .checkout-form-section {
+            background: #f9f9f9;
+            padding: 30px;
+            border-radius: 8px;
+        }
+        .checkout-form-section h2 {
+            font-size: 24px;
+            margin-bottom: 25px;
+            color: #333;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+            font-size: 14px;
+        }
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: 14px;
+        }
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #8B4513;
+            box-shadow: 0 0 0 3px rgba(139, 69, 19, 0.1);
+        }
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        .payment-option {
+            margin-bottom: 15px;
+            padding: 15px;
+            border: 2px solid #e8e8e8;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .payment-option input[type="radio"] {
+            margin-right: 10px;
+            cursor: pointer;
+        }
+        .payment-option input[type="radio"]:checked {
+            accent-color: #2f6f62;
+        }
+        .payment-option input[type="radio"]:checked ~ .payment-label-wrapper {
+            color: #2f6f62;
+        }
+        .payment-option:hover {
+            border-color: #8B4513;
+            background: #fafafa;
+        }
+        .payment-option label {
+            display: flex;
+            align-items: center;
+            margin: 0;
+            font-weight: 500;
+            width: 100%;
+            cursor: pointer;
+        }
+        .payment-option label span {
+            font-size: 15px;
+            color: #333;
+            font-weight: 600;
+        }
+        .payment-option input[type="radio"]:checked ~ .payment-label-wrapper span {
+            color: #2f6f62;
+        }
+        .payment-logo {
+            width: 45px;
+            height: 45px;
+            margin-right: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f9f9f9;
+            border-radius: 6px;
+            flex-shrink: 0;
+            border: 1px solid #e8e8e8;
+        }
+        .payment-logo img {
+            max-width: 85%;
+            max-height: 85%;
+            object-fit: contain;
+        }
+        .payment-label-wrapper {
+            display: flex;
+            align-items: center;
+            flex: 1;
+        }
+        .bank-details-info {
+            background: #f0f0f0;
+            padding: 12px;
+            border-radius: 4px;
+            margin-top: 10px;
+            font-size: 13px;
+            line-height: 1.6;
+            display: none;
+        }
+        .bank-details-info p {
+            margin: 0;
+            color: #555;
+        }
+        .bank-details-info.show {
+            display: block;
+        }
+        .order-summary-fixed {
+            background: #fff;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 25px;
+            height: fit-content;
+            position: sticky;
+            top: 20px;
+        }
+        .order-summary-fixed h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            font-size: 14px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .summary-row span {
+            color: #666;
+        }
+        .summary-row strong {
+            color: #333;
+        }
+        .summary-row.total {
+            border-bottom: none;
+            border-top: 2px solid #e0e0e0;
+            padding-top: 12px;
+            margin-top: 12px;
+            font-size: 16px;
+            font-weight: 700;
+        }
+        .checkout-actions {
+            display: grid;
+            gap: 10px;
+            margin-top: 25px;
+        }
+        .checkout-actions button {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        .checkout-actions .edit-btn {
+            background: #f0f0f0;
+            color: #333;
+        }
+        .checkout-actions .edit-btn:hover {
+            background: #e0e0e0;
+        }
+        .checkout-actions .complete-btn {
+            background: #2f6f62;
+            color: #fff;
+        }
+        .checkout-actions .complete-btn:hover {
+            background: #0a2923;
+        }
+        .info-box {
+            background: #f0f7ff;
+            border-left: 4px solid #8B4513;
+            padding: 12px;
+            margin-top: 20px;
+            font-size: 13px;
+            color: #555;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            animation: fadeIn 0.3s ease;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .modal-content {
+            background-color: #fff;
+            margin: 5% auto;
+            padding: 30px;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 800px;
+            max-height: 80vh;
+            overflow-y: auto;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+        .close-modal {
+            color: #999;
+            float: right;
+            font-size: 32px;
+            font-weight: bold;
+            cursor: pointer;
+            line-height: 20px;
+        }
+        .close-modal:hover,
+        .close-modal:focus {
+            color: #000;
+        }
+        .modal-content h2 {
+            margin-top: 0;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        .modal-update-date {
+            color: #999;
+            font-size: 12px;
+            margin-bottom: 20px;
+        }
+        .modal-body {
+            line-height: 1.8;
+            color: #555;
+        }
+        .modal-body h3 {
+            margin-top: 20px;
+            margin-bottom: 10px;
+            color: #333;
+            font-size: 16px;
+        }
+        .modal-body p {
+            margin: 10px 0;
+        }
+        .modal-body ul,
+        .modal-body ol {
+            margin: 10px 0 10px 20px;
+        }
+        .modal-body li {
+            margin: 8px 0;
+        }
+        .modal-footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #e0e0e0;
+        }
+        .modal-footer .reserve-btn {
+            background: #2f6f62;
+            color: #fff;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        .modal-footer .reserve-btn:hover {
+            background: #0a2923;
+        }
+        @media (max-width: 1024px) {
+            .checkout-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            .order-summary-fixed {
+                position: static;
+            }
+        }
+    </style>
+    <script src="https://js.stripe.com/v3/"></script>
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo"><a href="{% url 'index' %}"><img src="{% static 'images/urban_oasis.png' %}" alt="Urban Oasis Logo">Urban Oasis</a></div>
+        <nav class="nav-links" id="navLinks">
+            <a href="{% url 'index' %}">Home</a>
+            <a href="{% url 'amenities' %}">Amenities</a>
+            <a href="{% url 'gallery' %}">Gallery</a>
+            <a href="{% url 'location' %}">Location</a>
+        </nav>
+        <div class="lang-switcher">
+            <button id="langEn" class="lang-btn active">EN</button>
+            <button id="langEs" class="lang-btn">ES</button>
+            <button id="langFr" class="lang-btn">FR</button>
+        </div>
+        <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+        <div class="menu-overlay" id="menuOverlay"></div>
+    </header>
+
+    <main class="container">
+        <div style="padding: 40px 0;">
+            <h1 style="margin-bottom: 10px;">Complete Your Booking</h1>
+            <p style="color: #666; margin-bottom: 30px;">Fill in your details and select a payment method to finalize your reservation.</p>
+        </div>
+
+        <div class="checkout-container">
+            <!-- Left: Booking Form -->
+            <div>
+                <!-- Guest Info -->
+                <div class="checkout-form-section">
+                    <h2>Guest Information</h2>
+                    
+                    <div class="form-group">
+                        <label for="co-name">Full Name *</label>
+                        <input type="text" id="co-name" placeholder="John Doe" required>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="co-email">Email Address *</label>
+                            <input type="email" id="co-email" placeholder="john@example.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="co-phone">Phone Number *</label>
+                            <input type="tel" id="co-phone" placeholder="+1 (555) 123-4567" required>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Payment Method -->
+                <div class="checkout-form-section">
+                    <h2>Payment Method</h2>
+
+                    <div class="payment-option">
+                        <label>
+                            <input type="radio" name="payment_method" value="zelle" checked onclick="updatePaymentInfo()">
+                            <div class="payment-label-wrapper">
+                                <div class="payment-logo">
+                                    <img src="{% static 'images/Zelle-Logo-PNG.png' %}" alt="Zelle">
+                                </div>
+                                <span>Zelle</span>
+                            </div>
+                        </label>
+                    </div>
+                    <div class="bank-details-info" id="cardInfo">
+                        <p><strong>Recipient Email:</strong> jayeobabayo128@gmail.com</p>
+                        <p style="margin-top: 8px; color: #666; font-size: 13px;">Zelle transfers are typically processed within minutes. Please ensure the recipient email is correct and save your confirmation receipt.</p>
+                    </div>
+
+                    <div class="payment-option">
+                        <label>
+                            <input type="radio" name="payment_method" value="cashapp" onclick="updatePaymentInfo()">
+                            <div class="payment-label-wrapper">
+                                <div class="payment-logo">
+                                    <img src="{% static 'images/cashapp_logo.webp' %}" alt="Cash App">
+                                </div>
+                                <span>Cash App</span>
+                            </div>
+                        </label>
+                    </div>
+                    <div class="bank-details-info" id="arrivalInfo">
+                        <p><strong>Cashtag:</strong> $BayoT12344</p>
+                        <p style="margin-top: 8px; color: #666; font-size: 13px;">Quick and secure transfers. Please note the cashtag and include your booking reference in the payment note.</p>
+                    </div>
+
+                    <div class="payment-option">
+                        <label>
+                            <input type="radio" name="payment_method" value="debitcard" onclick="updatePaymentInfo()">
+                            <div class="payment-label-wrapper">
+                                <div class="payment-logo">
+                                    <i class="fas fa-credit-card" style="font-size: 24px; color: #2f6f62;"></i>
+                                </div>
+                                <span>Debit Card</span>
+                            </div>
+                        </label>
+                    </div>
+                    <div class="bank-details-info" id="debitcardInfo">
+                        <p style="color: #2f6f62; font-weight: 600;">💳 Secure Card Payment</p>
+                        <p style="margin-top: 8px; color: #666; font-size: 13px;">Your card information is encrypted and secure. Payments are processed immediately.</p>
+                    </div>
+                    
+                    <!-- Debit Card Details Form -->
+                    <div id="debitcardDetails" class="card-form" style="display:none;">
+                        <div class="form-group">
+                            <label for="cardholderName">Cardholder Name *</label>
+                            <input type="text" id="cardholderName" name="cardholderName" placeholder="John Doe" class="card-input">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="cardNumber">Card Number *</label>
+                            <input type="text" id="cardNumber" name="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19" class="card-input" inputmode="numeric">
+                            <small style="color: #999;">16 digits</small>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="cardExpiry">Expiry Date *</label>
+                                <input type="text" id="cardExpiry" name="cardExpiry" placeholder="MM/YY" maxlength="5" class="card-input" inputmode="numeric">
+                            </div>
+                            <div class="form-group">
+                                <label for="cardCVV">CVV *</label>
+                                <input type="text" id="cardCVV" name="cardCVV" placeholder="123" maxlength="4" class="card-input" inputmode="numeric">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="saveCard" name="saveCard">
+                                <span>Save this card for future bookings</span>
+                            </label>
+                        </div>
+                        
+                        <p style="font-size: 12px; color: #999; margin-top: 15px; padding-top: 15px; border-top: 1px solid #eee;">
+                            <i class="fas fa-lock" style="color: #2f6f62;"></i> 
+                            Your card details are encrypted and not stored on our servers. They are processed securely through our payment gateway.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="info-box">
+                    <i class="fas fa-info-circle"></i> Free cancellation up to 48 hours before check-in. By proceeding, you agree to our <a id="open-terms" href="#" style="color: #8B4513; text-decoration: none; font-weight: 600;">terms and conditions</a>.
+                </div>
+            </div>
+
+            <!-- Right: Order Summary -->
+            <div class="order-summary-fixed">
+                <h3>Order Summary</h3>
+
+                <div class="summary-row">
+                    <span>Check-in</span>
+                    <strong id="co-checkin">—</strong>
+                </div>
+                <div class="summary-row">
+                    <span>Check-out</span>
+                    <strong id="co-checkout">—</strong>
+                </div>
+                <div class="summary-row">
+                    <span>Total Nights</span>
+                    <strong id="co-nights">0</strong>
+                </div>
+                <div class="summary-row">
+                    <span>Base Rate</span>
+                    <strong id="co-base">$0.00</strong>
+                </div>
+                <div class="summary-row">
+                    <span>Tax (4%)</span>
+                    <strong id="co-tax">$0.00</strong>
+                </div>
+                <div class="summary-row total">
+                    <span>Total (incl. tax)</span>
+                    <strong id="co-total">$0.00</strong>
+                </div>
+
+                <div class="checkout-actions">
+                    <button class="edit-btn" id="edit-dates">← Edit Dates</button>
+                    <button class="complete-btn" id="complete-booking">Complete Booking</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-about">
+                <h3>Urban Oasis</h3>
+                <p>Experience the perfect blend of urban convenience and tranquil comfort.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="{% url 'amenities' %}">Amenities</a></li>
+                    <li><a href="{% url 'gallery' %}">Gallery</a></li>
+                    <li><a href="{% url 'booking' %}">Book Now</a></li>
+                    <li><a href="{% url 'location' %}">Location</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>Contact</h4>
+                <p>5110 Daybreak Dr<br>Killeen, TX 76542</p>
+                <p>+1 (254) 555-1234</p>
+                <p>hello@urbanoasis.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Urban Oasis. All rights reserved.</p>
+            <div><a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></div>
+        </div>
+    </footer>
+
+    <!-- Terms & Conditions Modal -->
+    <div id="termsModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" id="closeTerms">×</span>
+            <h2>Terms and Conditions</h2>
+            <p class="modal-update-date">Last updated: January 28, 2026</p>
+            
+            <div class="modal-body" id="termsContent">
+                <h3>1. Overview</h3>
+                <p>Welcome to Urban Oasis. These Terms of Service govern your use of our website, booking system, and rental properties. By accessing or booking through Urban Oasis, you agree to be bound by these terms.</p>
+
+                <h3>2. User Eligibility</h3>
+                <p>To use Urban Oasis services, you must:</p>
+                <ul>
+                    <li>Be at least 18 years of age</li>
+                    <li>Provide accurate and complete information during registration</li>
+                    <li>Maintain a valid payment method on file</li>
+                    <li>Not have any outstanding disputes or violations with Urban Oasis</li>
+                    <li>Comply with all applicable laws and regulations</li>
+                </ul>
+
+                <h3>3. Booking Terms</h3>
+                <p><strong>Reservation Confirmation</strong><br>A booking is only confirmed after payment is successfully processed and you receive a confirmation email. Urban Oasis reserves the right to cancel any booking that violates these terms or our house rules.</p>
+                <p><strong>Check-in and Check-out</strong><br>Check-in time is 3:00 PM and check-out time is 11:00 AM. Early check-in or late check-out may be available for an additional fee, subject to availability. Urban Oasis is not responsible for early arrivals or luggage storage before official check-in time.</p>
+
+                <h3>4. Cancellation & Refund Policy</h3>
+                <p><strong>Cancellation by Guest</strong></p>
+                <ul>
+                    <li><strong>Full Refund</strong>: Cancellations made more than 10 days before check-in date</li>
+                    <li><strong>50% Refund</strong>: Cancellations made 5 days before check-in date</li>
+                    <li><strong>No Refund</strong>: Cancellations made less than 7 days before check-in date</li>
+                </ul>
+                <p>Refunds will be processed within 5-7 business days after cancellation approval.</p>
+                <p><strong>Cancellation by Urban Oasis</strong><br>Urban Oasis may cancel any reservation with full refund if: (a) the property becomes unavailable due to unforeseen circumstances; (b) there are safety concerns; (c) illegal activity is suspected; or (d) terms of service violations occur.</p>
+
+                <h3>5. Payment Terms</h3>
+                <p>Payment is due upon booking confirmation and must be made through our secure online payment system. We accept all major credit cards and digital payment methods. Pricing includes accommodation only; taxes and service fees are calculated and displayed at checkout.</p>
+                <p><strong>Late Payment</strong><br>If payment is not received by the due date, Urban Oasis reserves the right to cancel the reservation without refund. Additionally, a late fee of 5% of the booking total may be applied.</p>
+
+                <h3>6. Guest Responsibilities</h3>
+                <p>Guests are responsible for:</p>
+                <ul>
+                    <li>Maintaining the cleanliness and condition of the property</li>
+                    <li>Adhering to all house rules and local regulations</li>
+                    <li>Reporting any damages, maintenance issues, or concerns immediately</li>
+                    <li>Not disturbing other guests or neighbors</li>
+                    <li>Securing the property when leaving</li>
+                </ul>
+
+                <h3>7. Property Rules</h3>
+                <p>The following rules must be observed at all times:</p>
+                <ul>
+                    <li>No smoking inside the property (smoking is permitted on outdoor terraces only)</li>
+                    <li>No pets unless explicitly approved and documented</li>
+                    <li>No loud music or excessive noise after 10:00 PM</li>
+                    <li>No parties or gatherings exceeding the maximum occupancy limit</li>
+                    <li>No unauthorized guests staying overnight</li>
+                    <li>Guests must vacate by 11:00 AM on check-out day</li>
+                </ul>
+                <p>Violation of these rules may result in immediate eviction without refund.</p>
+
+                <h3>8. Liability & Damages</h3>
+                <p>Urban Oasis is not responsible for:</p>
+                <ul>
+                    <li>Personal injury or accidents on the property</li>
+                    <li>Loss, theft, or damage to personal belongings</li>
+                    <li>Natural disasters or acts of God</li>
+                    <li>Interruption of utilities or services beyond reasonable control</li>
+                </ul>
+                <p><strong>Guest Liability</strong><br>Guests are fully liable for any damages to the property caused by negligence, misuse, or violation of house rules. Damage assessments will be conducted within 24 hours of checkout. Repair costs will be charged to the guest's payment method on file. Urban Oasis may pursue legal action for damages exceeding $5,000.</p>
+
+                <h3>9. Dispute Resolution</h3>
+                <p>In the event of a dispute between guest and Urban Oasis:</p>
+                <ol>
+                    <li>The guest must contact Urban Oasis within 48 hours of the issue occurring</li>
+                    <li>Urban Oasis will provide written response within 5 business days</li>
+                    <li>If unresolved, disputes may be escalated to mediation or arbitration</li>
+                    <li>Legal proceedings, if necessary, will be governed by Texas law</li>
+                </ol>
+
+                <h3>10. Intellectual Property</h3>
+                <p>All content on the Urban Oasis website, including text, images, logos, and designs, are protected by copyright and intellectual property laws. Unauthorized reproduction, distribution, or use of this content is strictly prohibited. Guests may not photograph or record the property for commercial purposes without written consent.</p>
+
+                <h3>11. Modifications to Terms</h3>
+                <p>Urban Oasis reserves the right to modify these Terms of Service at any time. Changes will be effective immediately upon posting to the website. Continued use of the website or booking system after modifications constitutes acceptance of the new terms. We recommend reviewing these terms regularly to stay informed of any updates.</p>
+
+                <h3>12. Contact Information</h3>
+                <p>If you have questions about these Terms of Service, please contact us:</p>
+                <p><strong>Urban Oasis</strong><br>
+                5110 Daybreak Dr<br>
+                Killeen, TX 76541<br>
+                Email: hello@urbanoasis.com<br>
+                Phone: +1 (407) 900-6046</p>
+                <p>We aim to respond to all inquiries within 30 business days.</p>
+
+                <p style="text-align: center; font-weight: 600; font-size: 1em; color: #333; margin-top: 40px;">
+                    By accepting these terms, you confirm that you have read, understood, and agree to be bound by all the above provisions, including the cancellation policy and guest responsibilities.
+                </p>
+            </div>
+
+            <div class="modal-footer">
+                <button id="closeTermsBtn" class="reserve-btn">I've read and agree</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="{% static 'static/script.js' %}"></script>
+    <script>
+        // Wait for DOM to be fully loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Terms Modal Logic
+            const termsLink      = document.getElementById('open-terms');
+            const termsModal     = document.getElementById('termsModal');
+            const closeTerms     = document.getElementById('closeTerms');
+            const closeTermsBtn  = document.getElementById('closeTermsBtn');
+
+            // Only attach handlers if the elements exist
+            if (termsLink && termsModal) {
+                termsLink.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    termsModal.style.display = 'block';
+                });
+
+                // Close handlers (if elements exist)
+                if (closeTerms) {
+                    closeTerms.addEventListener('click', () => {
+                        termsModal.style.display = 'none';
+                    });
+                }
+
+                if (closeTermsBtn) {
+                    closeTermsBtn.addEventListener('click', () => {
+                        termsModal.style.display = 'none';
+                    });
+                }
+
+                // Click outside to close
+                window.addEventListener('click', function(e) {
+                    if (e.target === termsModal) {
+                        termsModal.style.display = 'none';
+                    }
+                });
+            }
+
+            // Populate order summary from localStorage
+            const get = key => localStorage.getItem(key);
+            const checkin = get('selectedCheckIn') || '—';
+            const checkout = get('selectedCheckOut') || '—';
+            const nights = get('availableNights') || '0';
+            const base = parseFloat(get('estimateBase') || '0');
+            const tax = parseFloat(get('estimateTax') || '0');
+            const total = parseFloat(get('estimateTotal') || (base + tax));
+
+            document.getElementById('co-checkin').textContent = checkin;
+            document.getElementById('co-checkout').textContent = checkout;
+            document.getElementById('co-nights').textContent = nights;
+            document.getElementById('co-base').textContent = '$' + base.toLocaleString(undefined, {minimumFractionDigits:2, maximumFractionDigits:2});
+            document.getElementById('co-tax').textContent = '$' + tax.toLocaleString(undefined, {minimumFractionDigits:2, maximumFractionDigits:2});
+            document.getElementById('co-total').textContent = '$' + total.toLocaleString(undefined, {minimumFractionDigits:2, maximumFractionDigits:2});
+
+            // Payment method toggle function
+            function updatePaymentInfo() {
+                const zelleInfo = document.getElementById('cardInfo');
+                const cashappInfo = document.getElementById('arrivalInfo');
+                const debitcardInfo = document.getElementById('debitcardInfo');
+                const debitcardDetails = document.getElementById('debitcardDetails');
+                
+                // Hide all
+                if (zelleInfo) zelleInfo.classList.remove('show');
+                if (cashappInfo) cashappInfo.classList.remove('show');
+                if (debitcardInfo) debitcardInfo.classList.remove('show');
+                if (debitcardDetails) debitcardDetails.style.display = 'none';
+
+                const selected = document.querySelector('input[name="payment_method"]:checked').value;
+                
+                // Show selected
+                if (selected === 'zelle' && zelleInfo) {
+                    zelleInfo.classList.add('show');
+                } else if (selected === 'cashapp' && cashappInfo) {
+                    cashappInfo.classList.add('show');
+                } else if (selected === 'debitcard') {
+                    if (debitcardInfo) debitcardInfo.classList.add('show');
+                    if (debitcardDetails) debitcardDetails.style.display = 'block';
+                }
+            }
+
+            // Attach event listeners to all radio buttons
+            const radios = document.querySelectorAll('input[name="payment_method"]');
+            radios.forEach(radio => {
+                radio.addEventListener('change', updatePaymentInfo);
+            });
+
+            // Initialize payment UI on page load
+            updatePaymentInfo();
+
+            // Edit dates button
+            document.getElementById('edit-dates').addEventListener('click', function() {
+                window.location.href = 'index.html#availability';
+            });
+
+            // Complete booking button
+            document.getElementById('complete-booking').addEventListener('click', async function() {
+                const name = document.getElementById('co-name').value.trim();
+                const email = document.getElementById('co-email').value.trim();
+                const phone = document.getElementById('co-phone').value.trim();
+                const payment = document.querySelector('input[name="payment_method"]:checked').value;
+
+                if (!name) {
+                    alert('Please enter your full name.');
+                    return;
+                }
+                if (!email) {
+                    alert('Please enter your email address.');
+                    return;
+                }
+                if (!phone) {
+                    alert('Please enter your phone number.');
+                    return;
+                }
+
+                // Show loading state
+                const btn = document.getElementById('complete-booking');
+                const originalText = btn.textContent;
+                btn.disabled = true;
+                btn.textContent = 'Processing...';
+
+                try {
+                    // If paying by debit/credit card, run Stripe flow
+                    if (payment === 'debitcard') {
+                        // Validate card fields
+                        const cardholderName = document.getElementById('cardholderName').value.trim();
+                        const cardNumber = document.getElementById('cardNumber').value.replace(/\s/g, '');
+                        const cardExpiry = document.getElementById('cardExpiry').value.trim();
+                        const cardCVV = document.getElementById('cardCVV').value.trim();
+
+                        if (!cardholderName) throw new Error('Please enter cardholder name');
+                        if (cardNumber.length !== 16 || isNaN(cardNumber)) throw new Error('Please enter a valid 16-digit card number');
+                        if (!/^\d{2}\/\d{2}$/.test(cardExpiry)) throw new Error('Please enter expiry date in MM/YY format');
+                        if (cardCVV.length < 3 || cardCVV.length > 4 || isNaN(cardCVV)) throw new Error('Please enter a valid CVV (3-4 digits)');
+
+                        // Parse expiry
+                        const [expMonth, expYear] = cardExpiry.split('/');
+
+                        // Fetch Stripe publishable key
+                        const pkResp = await fetch('/api/stripe-config/');
+                        const pkData = await pkResp.json();
+                        if (!pkResp.ok || !pkData.publishableKey) throw new Error('Stripe not configured');
+
+                        // Initialize Stripe
+                        const stripe = Stripe(pkData.publishableKey);
+
+                        // Create payment method using card details
+                        const paymentMethodResp = await stripe.createPaymentMethod({
+                            type: 'card',
+                            card: {
+                                number: cardNumber,
+                                exp_month: parseInt(expMonth),
+                                exp_year: parseInt('20' + expYear),
+                                cvc: cardCVV,
+                            },
+                            billing_details: {
+                                name: cardholderName,
+                                email: email,
+                            },
+                        });
+
+                        if (paymentMethodResp.error) {
+                            throw new Error(paymentMethodResp.error.message);
+                        }
+
+                        const paymentMethodId = paymentMethodResp.paymentMethod.id;
+
+                        // Create PaymentIntent on backend
+                        const amountCents = Math.round(parseFloat(total || 0) * 100);
+                        const intentResp = await fetch('/api/create-payment-intent/', {
+                            method: 'POST',
+                            headers: {'Content-Type': 'application/json'},
+                            body: JSON.stringify({
+                                amount_cents: amountCents,
+                                currency: 'usd',
+                                metadata: {name: name, email: email}
+                            })
+                        });
+                        const intentData = await intentResp.json();
+                        if (!intentResp.ok) throw new Error(intentData.error || 'Failed to create payment intent');
+
+                        // Confirm payment with payment method
+                        const confirmResp = await stripe.confirmCardPayment(intentData.client_secret, {
+                            payment_method: paymentMethodId
+                        });
+
+                        if (confirmResp.error) {
+                            throw new Error(confirmResp.error.message);
+                        }
+
+                        if (confirmResp.paymentIntent && confirmResp.paymentIntent.status === 'succeeded') {
+                            // After successful payment, create booking record
+                            const [firstName, ...rest] = name.split(' ');
+                            const lastName = rest.join(' ') || '';
+                            const bookingPayload = {
+                                first_name: firstName,
+                                last_name: lastName,
+                                email: email,
+                                phone: phone,
+                                check_in: checkin,
+                                check_out: checkout,
+                                num_guests: 1,
+                                total_price: parseFloat(total || 0).toFixed(2),
+                                status: 'confirmed'
+                            };
+
+                            const bookingResp = await fetch('/api/bookings/', {
+                                method: 'POST',
+                                headers: {'Content-Type': 'application/json'},
+                                body: JSON.stringify(bookingPayload)
+                            });
+
+                            let bookingResult;
+                            const contentType = bookingResp.headers.get('content-type');
+                            
+                            if (contentType && contentType.includes('application/json')) {
+                                bookingResult = await bookingResp.json();
+                            } else {
+                                const text = await bookingResp.text();
+                                console.error('Non-JSON response received:', text);
+                                throw new Error('Server error: Invalid response format. Status ' + bookingResp.status);
+                            }
+
+                            if (bookingResp.ok) {
+                                try {
+                                    localStorage.setItem('guestName', name);
+                                    localStorage.setItem('guestEmail', email);
+                                    localStorage.setItem('guestPhone', phone);
+                                    localStorage.setItem('paymentMethod', payment);
+                                    localStorage.setItem('bookingComplete', '1');
+                                } catch (e) { console.warn('Could not store guest info', e); }
+
+                                alert('Payment successful! Your booking is confirmed. A confirmation email will be sent to ' + email);
+                                window.location.href = '/';
+                                return;
+                            } else {
+                                const errorMsg = bookingResult.error || bookingResult.detail || JSON.stringify(bookingResult);
+                                throw new Error(errorMsg);
+                            }
+                        } else {
+                            throw new Error('Payment was not successful. Status: ' + confirmResp.paymentIntent?.status);
+                        }
+                    }
+
+                    // Fallback: non-card payments (Zelle, Cash App)
+                    // Create booking via API without requiring payment processing
+                    const [firstName, ...rest] = name.split(' ');
+                    const lastName = rest.join(' ') || '';
+                    const bookingPayload = {
+                        first_name: firstName,
+                        last_name: lastName,
+                        email: email,
+                        phone: phone,
+                        check_in: checkin,
+                        check_out: checkout,
+                        num_guests: 1,
+                        total_price: parseFloat(total || 0).toFixed(2),
+                        special_requests: 'Payment method: ' + (payment === 'zelle' ? 'Zelle' : 'Cash App'),
+                    };
+
+                    const bookingResp = await fetch('/api/bookings/', {
+                        method: 'POST',
+                        headers: {'Content-Type': 'application/json'},
+                        body: JSON.stringify(bookingPayload)
+                    });
+
+                    let bookingResult;
+                    const contentType = bookingResp.headers.get('content-type');
+                    
+                    if (contentType && contentType.includes('application/json')) {
+                        bookingResult = await bookingResp.json();
+                    } else {
+                        const text = await bookingResp.text();
+                        console.error('Non-JSON response received:', text);
+                        throw new Error('Server error: Invalid response format. Status ' + bookingResp.status);
+                    }
+
+                    if (bookingResp.ok) {
+                        try {
+                            localStorage.setItem('guestName', name);
+                            localStorage.setItem('guestEmail', email);
+                            localStorage.setItem('guestPhone', phone);
+                            localStorage.setItem('paymentMethod', payment);
+                            localStorage.setItem('bookingComplete', '1');
+                        } catch (e) { console.warn('Could not store guest info', e); }
+
+                        alert('Booking confirmed! Please send payment to ' + (payment === 'zelle' ? 'jayeobabayo128@gmail.com (Zelle)' : '$BayoT12344 (Cash App)') + '. A confirmation email will be sent to ' + email);
+                        window.location.href = '/';
+                    } else {
+                        const errorMsg = bookingResult.error || bookingResult.detail || JSON.stringify(bookingResult);
+                        throw new Error(errorMsg);
+                    }
+                } catch (error) {
+                    console.error('Error:', error);
+                    alert('Error submitting booking: ' + error.message + '\n\nPlease try again or contact us at hello@urbanoasis.com');
+                    btn.disabled = false;
+                    btn.textContent = originalText;
+                }
+            });
+        });
+    </script>
+</body>
+</html>
